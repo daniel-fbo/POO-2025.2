@@ -1,4 +1,4 @@
-package ENTIDADES_CONCRETAS.CONSULTA;
+package PROCESSOS.CONSULTAS;
 
 public record RegistroConsulta() {
 }

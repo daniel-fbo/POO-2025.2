@@ -1,4 +1,4 @@
-package ENTIDADES_CONCRETAS.PACIENTE;
+package ENTIDADES.PACIENTE;
 
 public enum EstadoPaciente {
     Azul,

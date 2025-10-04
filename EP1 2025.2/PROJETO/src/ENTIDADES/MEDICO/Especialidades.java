@@ -1,4 +1,4 @@
-package ENTIDADES_CONCRETAS.MEDICO;
+package ENTIDADES.MEDICO;
 
 public enum Especialidades {
     Cardiologia,
