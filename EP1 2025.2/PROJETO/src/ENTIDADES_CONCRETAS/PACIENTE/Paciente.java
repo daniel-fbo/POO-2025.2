@@ -4,5 +4,5 @@ public class Paciente {
     private String nome;
     private String cpf;
     private short idade;
-    private Hitorico historico;
+    private Histórico historico;
 }
