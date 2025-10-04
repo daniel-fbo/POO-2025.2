@@ -5,34 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8c2a1164-637b-4ad7-940e-13bb7232e89c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/PROJETO/src/ENTIDADES/MEDICO/Agenda.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROJETO/src/ENTIDADES/MEDICO/Medico.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROJETO/src/ENTIDADES/PACIENTE/Historico.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROJETO/src/ENTIDADES/PACIENTE/Paciente.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROJETO/src/ENTIDADES/PACIENTE/Paciente_Crianca.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROJETO/src/ENTIDADES/PLANODESAUDE/PlanoDeSaude.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROJETO/src/PROCESSOS/CONSULTAS/Consulta.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROJETO/src/PROCESSOS/CONSULTAS/HorarioIndisponivel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROJETO/src/PROCESSOS/INTERNACAO/Internacao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROJETO/src/PROCESSOS/INTERNACAO/Leito.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PROJETO/src/PROCESSOS/INTERNACAO/RegistroInternacao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/ENTIDADES_CONCRETAS/CONSULTA/Consulta.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/ENTIDADES_CONCRETAS/CONSULTA/HorárioIndisponível.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/ENTIDADES_CONCRETAS/CONSULTA/RegistroConsulta.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/PROCESSOS/CONSULTAS/RegistroConsulta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/ENTIDADES_CONCRETAS/INTERNAÇÃO/Internação.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/ENTIDADES_CONCRETAS/INTERNAÇÃO/Leito.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/ENTIDADES_CONCRETAS/INTERNAÇÃO/LeitoOcupado.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/PROCESSOS/INTERNACAO/LeitoOcupado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/ENTIDADES_CONCRETAS/MEDICO/Agenda.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/ENTIDADES_CONCRETAS/MEDICO/Especialidades.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/ENTIDADES/MEDICO/Especialidades.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/ENTIDADES_CONCRETAS/MEDICO/Médico.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/ENTIDADES_CONCRETAS/PACIENTE/EstadoPaciente.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/ENTIDADES/PACIENTE/EstadoPaciente.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/ENTIDADES_CONCRETAS/PACIENTE/Histórico.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/ENTIDADES_CONCRETAS/PACIENTE/Paciente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/ENTIDADES_CONCRETAS/PACIENTE/Paciente_Criança.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/ENTIDADES_CONCRETAS/PACIENTE/Paciente_Idoso.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/ENTIDADES/PACIENTE/Paciente_Idoso.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/ENTIDADES_CONCRETAS/PLANODESAÚDE/PlanoDeSaúde.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROJETO/src/ENTIDADES/MEDICO/Especialidades.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/ENTIDADES/MEDICO/Especialidades.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PROJETO/src/SISTEMA/SistemaCadastro.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/SISTEMA/SistemaCadastro.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

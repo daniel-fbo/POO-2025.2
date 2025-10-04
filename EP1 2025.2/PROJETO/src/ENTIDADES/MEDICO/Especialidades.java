@@ -6,5 +6,6 @@ public enum Especialidades {
     Endocrinologia,
     Oncologia,
     Oftalmologia,
+    Pediatra,
     Psiquiatria
 }
