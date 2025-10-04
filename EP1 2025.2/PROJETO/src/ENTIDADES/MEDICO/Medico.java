@@ -6,10 +6,11 @@ public class Medico {
     private Agenda agenda;
     private Especialidades especialidade;
 
-    public Medico(String nome, short crm, double custoConsulta){
+    public Medico(String nome, short crm, double custoConsulta, Especialidades especialidade){
         this.nome = nome;
         this.crm = crm;
         this.custoConsulta = custoConsulta;
+        this.especialidade = especialidade;
     }
 
 }

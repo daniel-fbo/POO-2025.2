@@ -23,7 +23,7 @@ public class SistemaInternacao implements TEXTO {
         } while (!tecla.equals("4"));
     }
 
-    @Override
+
     public void cadastrar() {
     System.out.println("oi");
     }

@@ -4,8 +4,8 @@ import java.io.*;
 import ENTIDADES.PACIENTE.*;
 import ENTIDADES.MEDICO.*;
 public class SistemaCadastro implements TEXTO {
-    private static final Scanner input = new Scanner(System.in);
-    private static String tecla;
+    Scanner input = new Scanner(System.in);
+    String tecla;
 
     @Override
     public void abrirMenu() {
@@ -24,7 +24,6 @@ public class SistemaCadastro implements TEXTO {
         } while (!tecla.equals("3"));
     }
 
-
     public void cadastrarPaciente () {
         System.out.print("Nome: ");
         String nome = input.nextLine();
@@ -38,14 +37,6 @@ public class SistemaCadastro implements TEXTO {
             Paciente_Idoso paciente = new Paciente_Idoso(nome, cpf, idade);
         } else {
             Paciente paciente = new Paciente(nome, cpf, idade);
-        }
-
-        try (BufferedWriter preencher = new BufferedWriter(new FileWriter(CLIENTES, true))) {
-            preencher.write(cliente.fichaCliente());
-            preencher.newLine(); //PulaLinha
-            System.out.println("Cliente cadastrado.");
-        } catch (IOException e) {
-            System.out.println("Erro ao salvar o cadastro do cliente: " + e.getMessage());
         }
     }
 
@@ -61,26 +52,39 @@ public class SistemaCadastro implements TEXTO {
         Especialidades[] listaEspecialidades = Especialidades.values();
 
         System.out.println("Especialidade do médico:");
-        for(int i = 1; i <= listaEspecialidades.length; i++){
+        for(int i = 0; i < listaEspecialidades.length; i++){
             System.out.println((i+1) + " - " + listaEspecialidades[i] + ".");
         }
-        Especialidades especialidade;
+        Especialidades especialidade = null;
 
         while (especialidade == null){
-            System.out.println("Digite a opção correspondente:");
+            try{
+                System.out.println("Digite a opção correspondente:");
+                short opcao = input.nextShort();
+                if (opcao < 1 || opcao > listaEspecialidades.length){
+                    throw new IllegalArgumentException("Opção inválida.");
+                }
+                especialidade = listaEspecialidades[opcao - 1];
+            } catch (Exception e){
+                System.out.println("Digite um número entre 1 e "+ listaEspecialidades.length + ".");
+                input.nextLine(); //LimpaBuffer
+            }
         }
-
-
         Medico medico = new Medico(nome, crm, custoConsulta, especialidade);
 
-        try (BufferedWriter preencher = new BufferedWriter(new FileWriter(CLIENTES, true))) {
-            preencher.write(cliente.fichaCliente());
-            preencher.newLine(); //PulaLinha
-            System.out.println("Cliente cadastrado.");
-        } catch (IOException e) {
-            System.out.println("Erro ao salvar o cadastro do cliente: " + e.getMessage());
-        }
     }
+
+    public void cadastroPlano(){
+        System.out.print("Nome: ");
+        String nome = input.nextLine();
+        System.out.print("Porcentagem de desconto sobre : ");
+        String cpf = input.nextLine();
+        System.out.print("Idade: ");
+        short idade = input.nextShort();
+
+
     }
+
+}
 
 

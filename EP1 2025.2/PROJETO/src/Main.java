@@ -17,7 +17,7 @@ public class Main{
             System.out.println("3 - Agendar nova consulta");
             System.out.println("4 - Sair do sistema.");
             System.out.print("Digite a opção desejada: ");
-           tecla = input.nextLine();
+            tecla = input.nextLine();
             switch (tecla) {
                 case "1" -> tecla1.abrirMenu();
                 case "2" -> tecla2.abrirMenu();

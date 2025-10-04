@@ -2,8 +2,8 @@ package SISTEMA;
 import java.util.*;
 
 public class SistemaAgendamento implements TEXTO {
-    private Scanner input = new Scanner(System.in);
-    private String tecla;
+    Scanner input = new Scanner(System.in);
+    String tecla;
 
     @Override
     public void abrirMenu(){
