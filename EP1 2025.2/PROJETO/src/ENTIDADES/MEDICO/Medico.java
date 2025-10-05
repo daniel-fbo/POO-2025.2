@@ -1,7 +1,7 @@
 package ENTIDADES.MEDICO;
 public class Medico {
-    private String nome;
-    private short crm;
+    private final String nome;
+    private final short crm;
     private double custoConsulta;
     private Agenda agenda;
     private Especialidades especialidade;

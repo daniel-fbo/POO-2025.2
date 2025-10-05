@@ -1,7 +1,5 @@
 package PROCESSOS.INTERNACAO;
-
 import ENTIDADES.PACIENTE.Paciente;
-import PROCESSOS.CONSULTAS.RelatorioConsulta;
 import java.time.LocalDateTime;
 
 public class Internacao{

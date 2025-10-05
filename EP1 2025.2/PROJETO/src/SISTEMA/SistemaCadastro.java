@@ -2,7 +2,7 @@ package SISTEMA;
 import ENTIDADES.PACIENTE.*;
 import ENTIDADES.MEDICO.*;
 import ENTIDADES.PLANODESAUDE.*;
-import java.util.*;
+import java.util.Scanner;
 
 public class SistemaCadastro implements Menu {
     Scanner input = new Scanner(System.in);

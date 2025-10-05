@@ -1,8 +1,8 @@
 package ENTIDADES.PACIENTE;
 
 public class Paciente {
-    public String nome;
-    public String cpf;
+    public final String nome;
+    public final String cpf;
     public short idade;
     public EstadoPaciente estado;
     public Historico historico;
@@ -12,11 +12,5 @@ public class Paciente {
         this.cpf = cpf;
         this.idade = idade;
         this.estado = estado;
-    }
-    public void setHistorico(Historico novoHistorico) {
-        this.historico = novoHistorico;
-    }
-    public Historico getHistorico(){
-        return historico;
     }
 }

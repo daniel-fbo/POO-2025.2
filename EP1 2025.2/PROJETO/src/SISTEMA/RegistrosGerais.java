@@ -1,5 +1,4 @@
 package SISTEMA;
-
 import java.util.Scanner;
 
 public class RegistrosGerais implements Menu {

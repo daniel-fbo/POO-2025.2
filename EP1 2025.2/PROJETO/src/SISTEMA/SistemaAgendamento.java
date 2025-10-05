@@ -1,5 +1,5 @@
 package SISTEMA;
-import java.util.*;
+import java.util.Scanner;
 
 public class SistemaAgendamento implements Menu {
     Scanner input = new Scanner(System.in);
