@@ -1,8 +1,8 @@
 package SISTEMA;
-import java.util.*;
 import ENTIDADES.PACIENTE.*;
 import ENTIDADES.MEDICO.*;
 import ENTIDADES.PLANODESAUDE.*;
+import java.util.*;
 
 public class SistemaCadastro implements TEXTO {
     Scanner input = new Scanner(System.in);
@@ -34,12 +34,36 @@ public class SistemaCadastro implements TEXTO {
         String cpf = input.nextLine();
         System.out.print("Idade: ");
         short idade = input.nextShort();
+
+        //Array com todas as Especialidades
+        EstadoPaciente[] listaEstados = EstadoPaciente.values();
+
+        System.out.println("Estado do paciente na triagem:");
+        for(int i = 0; i < listaEstados.length; i++){
+            System.out.println((i+1) + " - " + listaEstados[i] + ".");
+        }
+        EstadoPaciente estado = null;
+
+        while (estado == null){
+            try{
+                System.out.println("Digite a opção correspondente:");
+                short opcao = input.nextShort();
+                if (opcao < 1 || opcao > listaEstados.length){
+                    throw new IllegalArgumentException("Opção inválida.");
+                }
+                estado = listaEstados[opcao - 1];
+            } catch (Exception e){
+                System.out.println("Digite um número entre 1 e "+ listaEstados.length + ".");
+                input.nextLine(); //LimpaBuffer
+            }
+        }
+
         if (idade <= 12) {
-            Paciente_Crianca paciente = new Paciente_Crianca(nome, cpf, idade);
+            Paciente_Crianca paciente = new Paciente_Crianca(nome, cpf, idade, estado);
         } else if (idade >= 60){
-            Paciente_Idoso paciente = new Paciente_Idoso(nome, cpf, idade);
+            Paciente_Idoso paciente = new Paciente_Idoso(nome, cpf, idade, estado);
         } else {
-            Paciente paciente = new Paciente(nome, cpf, idade);
+            Paciente paciente = new Paciente(nome, cpf, idade, estado);
         }
     }
 

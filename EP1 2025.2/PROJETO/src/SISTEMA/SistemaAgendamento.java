@@ -8,7 +8,7 @@ public class SistemaAgendamento implements TEXTO {
     @Override
     public void abrirMenu(){
         do {
-            System.out.println("\n==== SISTEMA DE CADASTRAMENTO ====");
+            System.out.println("\n==== SISTEMA DE AGENDAMENTO ====");
             System.out.println("1 - Cadastro de paciente.");
             System.out.println("2 - Cadastro de médico.");
             System.out.print("Digite a opção desejada: ");

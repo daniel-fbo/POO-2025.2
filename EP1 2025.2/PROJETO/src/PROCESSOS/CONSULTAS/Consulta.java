@@ -7,6 +7,6 @@ public class Consulta {
     private Paciente paciente;
     private Medico medico;
     private LocalDateTime horarioConsulta;
-    private RegistroConsulta registroConsulta;
+    private RelatorioConsulta relatorioConsulta;
 
 }
