@@ -2,38 +2,48 @@ package PROCESSOS.INTERNACAO;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
-public class GerenciadorDeLeitos {
-    !
-    private final List<Leito> listaLeitos = new ArrayList<>();
+public class GerenciadorLeitos {
+    private List<Leito> quartos;
+    private List<Leito> salasA;
+    private List<Leito> salasV;
 
-    public GerenciadorDeLeitos() {
-        for (int i = 1; i <= 10; i++) {
-            listaLeitos.add(new Leito(i, TipoLeito.VERDE_AZUL));
-        }
-        // Ex: 5 leitos Amarelos (IDs de 11 a 15)
-        for (int i = 11; i <= 15; i++) {
-            listaLeitos.add(new Leito(i, TipoLeito.AMARELO));
-        }
-        // Ex: 3 leitos Vermelhos (IDs de 16 a 18)
-        for (int i = 16; i <= 18; i++) {
-            listaLeitos.add(new Leito(i, TipoLeito.VERMELHO));
+    public GerenciadorLeitos(int qtdQuartos, int qtdSalasA, int qtdSalasV) {
+        quartos = new ArrayList<>();
+        salasA = new ArrayList<>();
+        salasV = new ArrayList<>();
+
+        inicializarLeitos(qtdQuartos, TipoLeito.QUARTO, quartos);
+        inicializarLeitos(qtdSalasA, TipoLeito.SALA_AMARELA, salasA);
+        inicializarLeitos(qtdSalasV, TipoLeito.SALA_VERMELHA, salasV);
+    }
+
+    private void inicializarLeitos(int qtd, TipoLeito tipo, List<Leito> lista) {
+        for (int i = 1; i <= qtd; i++) {
+            lista.add(new Leito((short) i, tipo, custoDiario));
         }
     }
 
-    public Optional<Leito> buscarLeitoDesocupado(TipoLeito tipo) {
-        for (Leito leito : listaLeitos) {
-            if (leito.getTipo() == tipo && !leito.isOcupado()) {
-                return Optional.of(leito); // Retorna o leito encontrado
-            }
+    public Leito obterLeitoDisponivel(TipoLeito tipo) {
+        List<Leito> lista = getListaPorTipo(tipo);
+        for (Leito l : lista) {
+            if (!l.isOcupado()) return l;
         }
-        return Optional.empty();
+        return null;
     }
 
-    public void listarTodosOsLeitos() {
-        for (Leito leito : listaLeitos) {
-            System.out.println(leito);
+    public void listarLeitosPorTipo(TipoLeito tipo) {
+        List<Leito> lista = getListaPorTipo(tipo);
+        for (Leito l : lista) {
+            System.out.println(l);
         }
+    }
+
+    private List<Leito> getListaPorTipo(TipoLeito tipo) {
+        return switch (tipo) {
+            case AZUL_VERDE -> leitosAzulVerde;
+            case AMARELO -> leitosAmarelo;
+            case VERMELHO -> salasV;
+        };
     }
 }

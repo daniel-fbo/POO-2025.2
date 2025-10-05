@@ -16,4 +16,37 @@ public class Leito {
         this.custoDiario = custoDiario;
     }
 
+    public short getCodigoLeito(){
+        return codigoLeito;
+    }
+    public TipoLeito getTipoLeito() {
+        return tipoLeito;
+    }
+    public boolean isOcupado(){
+        return ocupado;
+    }
+    public Paciente getPaciente() {
+        return paciente;
+    }
+    public void ocupar(Paciente paciente) {
+        if (this.ocupado) {
+            throw new LeitoOcupado("Leito " + codigoLeito + " já está ocupado!");
+        }
+        this.paciente = paciente;
+        this.ocupado = true;
+    }
+    public void liberar() {
+        this.paciente = null;
+        this.ocupado = false;
+    }
+
+    @Override
+    public String toString() {
+        return "Leito: " + codigoLeito + " (" + tipoLeito + ") - " +
+                "Ocupado por " + (paciente == null ?  "—" : paciente.nome);
+    }
 }
+
+
+
+

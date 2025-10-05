@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8c2a1164-637b-4ad7-940e-13bb7232e89c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/ENTIDADES/MEDICO/Especialidades.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/ENTIDADES/MEDICO/Especialidades.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/SISTEMA/SistemaCadastro.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/SISTEMA/SistemaCadastro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROJETO/src/PROCESSOS/INTERNACAO/GerenciadorLeitos.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/PROCESSOS/INTERNACAO/GerenciadorLeitos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROJETO/src/PROCESSOS/INTERNACAO/Leito.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/PROCESSOS/INTERNACAO/Leito.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PROJETO/src/PROCESSOS/INTERNACAO/LeitoOcupado.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/PROCESSOS/INTERNACAO/LeitoOcupado.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
