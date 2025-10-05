@@ -4,7 +4,7 @@ import ENTIDADES.MEDICO.*;
 import ENTIDADES.PLANODESAUDE.*;
 import java.util.*;
 
-public class SistemaCadastro implements TEXTO {
+public class SistemaCadastro implements Menu {
     Scanner input = new Scanner(System.in);
     String tecla;
 

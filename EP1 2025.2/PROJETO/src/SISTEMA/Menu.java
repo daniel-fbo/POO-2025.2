@@ -1,6 +1,6 @@
 package SISTEMA;
 
-public interface TEXTO {
+public interface Menu {
      void abrirMenu();
 
 }

@@ -2,7 +2,7 @@ package SISTEMA;
 
 import java.util.Scanner;
 
-public class RegistrosGerais implements TEXTO {
+public class RegistrosGerais implements Menu {
     Scanner input = new Scanner(System.in);
     String tecla;
 
