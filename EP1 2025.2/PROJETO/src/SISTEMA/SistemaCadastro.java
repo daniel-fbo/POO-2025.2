@@ -1,8 +1,9 @@
 package SISTEMA;
 import java.util.*;
-import java.io.*;
 import ENTIDADES.PACIENTE.*;
 import ENTIDADES.MEDICO.*;
+import ENTIDADES.PLANODESAUDE.*;
+
 public class SistemaCadastro implements TEXTO {
     Scanner input = new Scanner(System.in);
     String tecla;
@@ -13,15 +14,17 @@ public class SistemaCadastro implements TEXTO {
             System.out.println("\n==== SISTEMA DE CADASTRO ====");
             System.out.println("1 - Cadastro de paciente.");
             System.out.println("2 - Cadastro de médico.");
-            System.out.println("3 - Voltar ao menu principal: ");
+            System.out.println("3 - Cadastro de médico.");
+            System.out.println("4 - Voltar ao menu principal: ");
             tecla = input.nextLine();
             switch (tecla) {
                 case "1" -> cadastrarPaciente();
                 case "2" -> cadastrarMedico();
-                case "3" -> System.out.println("SISTEMA FECHADO");
+                case "3" -> cadastrarPlano();
+                case "4" -> System.out.println("SISTEMA FECHADO");
                 default -> System.out.println("Opção inválida.");
             }
-        } while (!tecla.equals("3"));
+        } while (!tecla.equals("4"));
     }
 
     public void cadastrarPaciente () {
@@ -74,14 +77,69 @@ public class SistemaCadastro implements TEXTO {
 
     }
 
-    public void cadastroPlano(){
+    public void cadastrarPlano(){
+        int opcao=0;
         System.out.print("Nome: ");
         String nome = input.nextLine();
-        System.out.print("Porcentagem de desconto sobre : ");
-        String cpf = input.nextLine();
-        System.out.print("Idade: ");
-        short idade = input.nextShort();
 
+        while(true){
+            try{
+                System.out.println("Desconto aplicado a consultas: ");
+                System.out.println("1- 10%");
+                System.out.println("2- 15%");
+                System.out.println("3- 25%");
+                System.out.println("Digite a opção correspondente: ");
+                opcao = input.nextInt();
+
+                if (opcao < 1 || opcao > 3){
+                    throw new IllegalArgumentException("Opção inválida");
+                }
+                break;
+
+            } catch (Exception e){
+                System.out.println("Digite um número entre 1 e 3");
+                input.nextLine();
+            }
+        }
+
+        float descontoConsulta;
+        switch (opcao){
+            case 1 -> descontoConsulta = 0.90f;
+            case 2 -> descontoConsulta = 0.85f;
+            case 3 -> descontoConsulta = 0.75f;
+            default -> descontoConsulta = 1f;
+        }
+
+        while(true){
+            try{
+                //Desconto aplicado ao custo diário
+                System.out.println("Desconto aplicado aos custos de internação: ");
+                System.out.println("1- 25%");
+                System.out.println("2- 35%");
+                System.out.println("3- 50%");
+                System.out.println("Digite a opção correspondente: ");
+                opcao = input.nextInt();
+
+                if (opcao < 1 || opcao > 3){
+                    throw new IllegalArgumentException("Opção inválida");
+                }
+                break;
+
+            } catch (Exception e){
+                System.out.println("Digite um número entre 1 e 3");
+                input.nextLine();
+            }
+        }
+
+        float descontoInternacao;
+        switch (opcao){
+            case 1 -> descontoInternacao = 0.75f;
+            case 2 -> descontoInternacao = 0.65f;
+            case 3 -> descontoInternacao = 0.5f;
+            default -> descontoInternacao = 1f;
+        }
+
+        PlanoDeSaude plano = new PlanoDeSaude(nome, descontoConsulta, descontoInternacao);
 
     }
 
