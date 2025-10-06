@@ -42,7 +42,8 @@ public class Leito {
 
     @Override
     public String toString() {
-        return "Leito: " + codigoLeito + " (" + tipoLeito + ") - " +
+        return "Leito: " + codigoLeito + ". \n" +
+                "Tipo de leito: "+ tipoLeito + ". \n" +
                 "Ocupado por " + (paciente == null ?  "—" : paciente.nome);
     }
 }

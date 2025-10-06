@@ -1,4 +1,4 @@
-import SISTEMA.*;
+import SISTEMAS.*;
 import java.util.Scanner;
 
 public class Main{

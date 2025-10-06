@@ -11,6 +11,18 @@ public class Medico {
         this.crm = crm;
         this.custoConsulta = custoConsulta;
         this.especialidade = especialidade;
+        this.agenda = null;
+    }
+
+    public void setAgenda(Agenda agenda){
+        this.agenda = agenda;
+    }
+    public void setCustoConsulta(double custoConsulta){
+        this.custoConsulta = custoConsulta;
+    }
+
+    public String getNome(){
+        return nome;
     }
 
 }

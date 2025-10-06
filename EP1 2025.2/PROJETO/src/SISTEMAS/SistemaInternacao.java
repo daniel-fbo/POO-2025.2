@@ -1,4 +1,4 @@
-package SISTEMA;
+package SISTEMAS;
 import java.util.Scanner;
 
 public class SistemaInternacao implements Menu {

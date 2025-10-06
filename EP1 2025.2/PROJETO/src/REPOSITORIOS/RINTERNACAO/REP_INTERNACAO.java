@@ -1,0 +1,4 @@
+package REPOSITORIOS.RINTERNACAO;
+
+public interface REP_INTERNACAO {
+}

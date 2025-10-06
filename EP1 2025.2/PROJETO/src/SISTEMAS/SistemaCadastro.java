@@ -1,12 +1,16 @@
-package SISTEMA;
+package SISTEMAS;
 import ENTIDADES.PACIENTE.*;
 import ENTIDADES.MEDICO.*;
 import ENTIDADES.PLANODESAUDE.*;
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class SistemaCadastro implements Menu {
     Scanner input = new Scanner(System.in);
     String tecla;
+    private  List<PlanoDeSaude> planos = new ArrayList<>();
 
     @Override
     public void abrirMenu() {
@@ -58,12 +62,15 @@ public class SistemaCadastro implements Menu {
             }
         }
 
+        PlanoDeSaude plano;
+
+
         if (idade <= 12) {
-            Paciente_Crianca paciente = new Paciente_Crianca(nome, cpf, idade, estado);
+            Paciente paciente = new Paciente_Crianca(nome, cpf, idade, estado, plano);
         } else if (idade >= 60){
-            Paciente_Idoso paciente = new Paciente_Idoso(nome, cpf, idade, estado);
+            Paciente paciente = new Paciente_Idoso(nome, cpf, idade, estado, plano);
         } else {
-            Paciente paciente = new Paciente(nome, cpf, idade, estado);
+            Paciente paciente = new Paciente(nome, cpf, idade, estado, plano);
         }
     }
 
