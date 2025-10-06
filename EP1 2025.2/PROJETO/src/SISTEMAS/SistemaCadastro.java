@@ -11,10 +11,10 @@ import java.util.Scanner;
 
 
 public class SistemaCadastro implements Menu {
-    private Scanner input = new Scanner(System.in);
-    private REP_PACIENTE rPaciente;
-    private REP_MEDICO rMedico;
-    private REP_PLANO rPlano;
+    private final Scanner input;
+    private final REP_PACIENTE rPaciente;
+    private final REP_MEDICO rMedico;
+    private final REP_PLANO rPlano;
 
     public SistemaCadastro(Scanner input, REP_PACIENTE rPaciente, REP_MEDICO rMedico, REP_PLANO rPlano){
         this.input = input;
@@ -72,7 +72,8 @@ public class SistemaCadastro implements Menu {
             }
         }
 
-        short temPlano;
+        short temPlano = 0;
+        PlanoDeSaude planoSelecionado = null;
         System.out.println("O paciente possui plano de saúde?\n 1- Sim.\n 2-Não.");
         try{
             System.out.println("Digite a opção correspondente:");
@@ -86,18 +87,40 @@ public class SistemaCadastro implements Menu {
             input.nextLine(); //LimpaBuffer
         }
 
-        if(temPlano==1){
+        if(temPlano==1) {
             List<PlanoDeSaude> planosDisponiveis = rPlano.listarPlanos();
+            if (planosDisponiveis.isEmpty()) {
+                System.out.println("Nenhum plano de saúde cadastrado. Paciente será cadastrado sem plano.");
+            } else {
+                System.out.println("Planos disponíveis:");
+                for (int i = 0; i < planosDisponiveis.size(); i++) {
+                    System.out.println(i + 1 + "- " + planosDisponiveis.get(i).getNome() + "\n");
+                }
+            }
+            while (planoSelecionado == null) {
+                try {
+                    short opcao;
+                    System.out.println("Digite a opção correspondente: ");
+                    opcao = input.nextShort();
+                    if (opcao < 1 || opcao > planosDisponiveis.size()) {
+                        throw new IllegalArgumentException("Opção inválida.");
+                    }
+                    planoSelecionado = planosDisponiveis.get(opcao - 1);
+                } catch (Exception e) {
+                    System.out.println("Digite uma opção entre 1 e " + planosDisponiveis.size());
+                    input.nextLine();
+                }
+            }
         }
 
         if (idade <= 12) {
-            Paciente paciente = new Paciente_Crianca(nome, cpf, idade, estado, plano);
+            Paciente paciente = new Paciente_Crianca(nome, cpf, idade, estado, planoSelecionado);
             rPaciente.salvarPaciente(paciente);
         } else if (idade >= 60){
-            Paciente paciente = new Paciente_Idoso(nome, cpf, idade, estado, plano);
+            Paciente paciente = new Paciente_Idoso(nome, cpf, idade, estado, planoSelecionado);
             rPaciente.salvarPaciente(paciente);
         } else {
-            Paciente paciente = new Paciente(nome, cpf, idade, estado, plano);
+            Paciente paciente = new Paciente(nome, cpf, idade, estado, planoSelecionado);
             rPaciente.salvarPaciente(paciente);
         }
     }
@@ -106,18 +129,16 @@ public class SistemaCadastro implements Menu {
         System.out.print("Nome: ");
         String nome = input.nextLine();
         System.out.print("CRM: ");
-        short crm = input.nextShort();
+        String crm = input.nextLine();
         System.out.print("Custo da consulta: ");
         double custoConsulta = input.nextShort();
 
-        //Array com todas as Especialidades
         Especialidades[] listaEspecialidades = Especialidades.values();
-
+        Especialidades especialidade = null;
         System.out.println("Especialidade do médico:");
         for(int i = 0; i < listaEspecialidades.length; i++){
             System.out.println((i+1) + " - " + listaEspecialidades[i] + ".");
         }
-        Especialidades especialidade = null;
 
         while (especialidade == null){
             try{
@@ -134,10 +155,12 @@ public class SistemaCadastro implements Menu {
         }
         Medico medico = new Medico(nome, crm, custoConsulta, especialidade);
 
+        rMedico.salvarMedico(medico);
+
     }
 
     public void cadastrarPlano(){
-        int opcao=0;
+        int opcao;
         System.out.print("Nome: ");
         String nome = input.nextLine();
 
@@ -198,8 +221,30 @@ public class SistemaCadastro implements Menu {
             default -> descontoInternacao = 1f;
         }
 
-        PlanoDeSaude plano = new PlanoDeSaude(nome, descontoConsulta, descontoInternacao);
+        Especialidades[] listaEspecialidades = Especialidades.values();
+        Especialidades especialidade = null;
+        System.out.println("Especialidade com desconto especial:");
+        for(int i = 0; i < listaEspecialidades.length; i++){
+            System.out.println((i+1) + " - " + listaEspecialidades[i] + ".");
+        }
 
+        while (especialidade == null){
+            try{
+                System.out.println("Digite a opção correspondente:");
+                opcao = input.nextShort();
+                if (opcao < 1 || opcao > listaEspecialidades.length){
+                    throw new IllegalArgumentException("Opção inválida.");
+                }
+                especialidade = listaEspecialidades[opcao - 1];
+            } catch (Exception e){
+                System.out.println("Digite um número entre 1 e "+ listaEspecialidades.length + ".");
+                input.nextLine(); //LimpaBuffer
+            }
+        }
+
+        PlanoDeSaude plano = new PlanoDeSaude(nome, descontoConsulta, descontoInternacao, especialidade);
+
+        rPlano.salvarPlano(plano);
     }
 
 }

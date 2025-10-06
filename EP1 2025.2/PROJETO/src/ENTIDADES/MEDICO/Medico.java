@@ -1,12 +1,12 @@
 package ENTIDADES.MEDICO;
 public class Medico {
     private final String nome;
-    private final short crm;
+    private final String crm;
     private double custoConsulta;
     private Agenda agenda;
     private Especialidades especialidade;
 
-    public Medico(String nome, short crm, double custoConsulta, Especialidades especialidade){
+    public Medico(String nome, String crm, double custoConsulta, Especialidades especialidade){
         this.nome = nome;
         this.crm = crm;
         this.custoConsulta = custoConsulta;
@@ -14,15 +14,8 @@ public class Medico {
         this.agenda = null;
     }
 
-    public void setAgenda(Agenda agenda){
-        this.agenda = agenda;
-    }
-    public void setCustoConsulta(double custoConsulta){
-        this.custoConsulta = custoConsulta;
-    }
-
-    public String getNome(){
-        return nome;
+    public String getCrm(){
+        return crm;
     }
 
 }

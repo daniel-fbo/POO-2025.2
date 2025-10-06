@@ -16,4 +16,8 @@ public class PlanoDeSaude {
         this.descontoInternacao = descontoInternacao;
         this.especialidade = especialidade;
     }
+
+    public String getNome(){
+        return nome;
+    }
 }
