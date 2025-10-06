@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface REP_PACIENTE {
-    void salvar(Paciente paciente);
+    void salvarPaciente(Paciente paciente);
     Optional<Paciente> buscarCpf(String cpf);
-    List<Paciente> listarTodos();
+    List<Paciente> listarPacientes();
 }

@@ -2,11 +2,11 @@ package SISTEMAS;
 import java.util.Scanner;
 
 public class SistemaAgendamento implements Menu {
-    Scanner input = new Scanner(System.in);
-    String tecla;
+    private Scanner input = new Scanner(System.in);
 
     @Override
     public void abrirMenu(){
+        String tecla;
         do {
             System.out.println("\n==== SISTEMA DE AGENDAMENTO ====");
             System.out.println("1 - Agendar consulta.");

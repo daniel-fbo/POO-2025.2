@@ -2,18 +2,30 @@ package SISTEMAS;
 import ENTIDADES.PACIENTE.*;
 import ENTIDADES.MEDICO.*;
 import ENTIDADES.PLANODESAUDE.*;
-import java.util.Scanner;
-import java.util.ArrayList;
+import REPOSITORIOS.RMEDICO.*;
+import REPOSITORIOS.RPACIENTE.*;
+import REPOSITORIOS.RPLANODESAUDE.*;
 import java.util.List;
+import java.util.Scanner;
+
 
 
 public class SistemaCadastro implements Menu {
-    Scanner input = new Scanner(System.in);
-    String tecla;
-    private  List<PlanoDeSaude> planos = new ArrayList<>();
+    private Scanner input = new Scanner(System.in);
+    private REP_PACIENTE rPaciente;
+    private REP_MEDICO rMedico;
+    private REP_PLANO rPlano;
+
+    public SistemaCadastro(Scanner input, REP_PACIENTE rPaciente, REP_MEDICO rMedico, REP_PLANO rPlano){
+        this.input = input;
+        this.rPaciente = rPaciente;
+        this.rMedico = rMedico;
+        this.rPlano = rPlano;
+    }
 
     @Override
     public void abrirMenu() {
+        String tecla;
         do {
             System.out.println("\n==== SISTEMA DE CADASTRO ====");
             System.out.println("1 - Cadastro de paciente.");
@@ -39,15 +51,13 @@ public class SistemaCadastro implements Menu {
         System.out.print("Idade: ");
         short idade = input.nextShort();
 
-        //Array com todas as Especialidades
         EstadoPaciente[] listaEstados = EstadoPaciente.values();
-
         System.out.println("Estado do paciente na triagem:");
         for(int i = 0; i < listaEstados.length; i++){
             System.out.println((i+1) + " - " + listaEstados[i] + ".");
         }
-        EstadoPaciente estado = null;
 
+        EstadoPaciente estado = null;
         while (estado == null){
             try{
                 System.out.println("Digite a opção correspondente:");
@@ -62,15 +72,33 @@ public class SistemaCadastro implements Menu {
             }
         }
 
-        PlanoDeSaude plano;
+        short temPlano;
+        System.out.println("O paciente possui plano de saúde?\n 1- Sim.\n 2-Não.");
+        try{
+            System.out.println("Digite a opção correspondente:");
+            short opcao = input.nextShort();
+            if (opcao < 1 || opcao > 2){
+                throw new IllegalArgumentException("Opção inválida.");
+            }
+            temPlano = opcao;
+        } catch (Exception e){
+            System.out.println("Digite um número entre 1 e 2.");
+            input.nextLine(); //LimpaBuffer
+        }
 
+        if(temPlano==1){
+            List<PlanoDeSaude> planosDisponiveis = rPlano.listarPlanos();
+        }
 
         if (idade <= 12) {
             Paciente paciente = new Paciente_Crianca(nome, cpf, idade, estado, plano);
+            rPaciente.salvarPaciente(paciente);
         } else if (idade >= 60){
             Paciente paciente = new Paciente_Idoso(nome, cpf, idade, estado, plano);
+            rPaciente.salvarPaciente(paciente);
         } else {
             Paciente paciente = new Paciente(nome, cpf, idade, estado, plano);
+            rPaciente.salvarPaciente(paciente);
         }
     }
 

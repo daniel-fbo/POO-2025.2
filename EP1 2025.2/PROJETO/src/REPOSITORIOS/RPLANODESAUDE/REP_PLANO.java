@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface REP_PLANO {
-    void salvar(PlanoDeSaude plano);
-    Optional<PlanoDeSaude> buscarNome(String nome);
-    List<PlanoDeSaude> listarTodos();
+    void salvarPlano(PlanoDeSaude plano);
+    Optional<PlanoDeSaude> buscarIdPlano(int idPlano);
+    List<PlanoDeSaude> listarPlanos();
 }
