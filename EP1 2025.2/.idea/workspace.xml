@@ -6,23 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="8c2a1164-637b-4ad7-940e-13bb7232e89c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/PROCESSOS/CONSULTAS/Consulta.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/PROCESSOS/CONSULTAS/Consulta.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/PROCESSOS/INTERNACAO/Internacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/PROCESSOS/INTERNACAO/Internacao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RCONSULTA/REP_CONSULTA.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RCONSULTA/REP_CONSULTA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RCONSULTA/REP_CONSULTA_CSV.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RCONSULTA/REP_CONSULTA_CSV.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RCONSULTA/REP_CONSULTA_RAM.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RCONSULTA/REP_CONSULTA_RAM.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RINTERNACAO/REP_INTERNACAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RINTERNACAO/REP_INTERNACAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RINTERNACAO/REP_INTERNACAO_CSV.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RINTERNACAO/REP_INTERNACAO_CSV.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RINTERNACAO/REP_INTERNACAO_RAM.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RINTERNACAO/REP_INTERNACAO_RAM.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RMEDICO/REP_MEDICO.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RMEDICO/REP_MEDICO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RMEDICO/REP_MEDICO_CSV.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RMEDICO/REP_MEDICO_CSV.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RMEDICO/REP_MEDICO_RAM.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RMEDICO/REP_MEDICO_RAM.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RPACIENTE/REP_PACIENTE.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RPACIENTE/REP_PACIENTE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RPACIENTE/REP_PACIENTE_CSV.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RPACIENTE/REP_PACIENTE_CSV.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RPACIENTE/REP_PACIENTE_RAM.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RPACIENTE/REP_PACIENTE_RAM.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RPLANODESAUDE/REP_PLANO.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RPLANODESAUDE/REP_PLANO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RPLANODESAUDE/REP_PLANO_CSV.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RPLANODESAUDE/REP_PLANO_CSV.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RPLANODESAUDE/REP_PLANO_RAM.java" beforeDir="false" afterPath="$PROJECT_DIR$/PROJETO/src/REPOSITORIOS/RPLANODESAUDE/REP_PLANO_RAM.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
