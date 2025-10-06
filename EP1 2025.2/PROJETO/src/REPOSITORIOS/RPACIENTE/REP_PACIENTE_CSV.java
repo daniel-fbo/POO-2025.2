@@ -1,4 +1,4 @@
 package REPOSITORIOS.RPACIENTE;
 
-public class REP_PACIENTE_CSV {
+public class REP_PACIENTE_CSV implements REP_PACIENTE {
 }

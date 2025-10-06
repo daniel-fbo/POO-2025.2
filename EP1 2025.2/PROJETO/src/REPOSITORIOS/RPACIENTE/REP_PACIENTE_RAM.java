@@ -1,4 +1,4 @@
 package REPOSITORIOS.RPACIENTE;
 
-public class REP_PACIENTE_RAM {
+public class REP_PACIENTE_RAM implements REP_PACIENTE {
 }

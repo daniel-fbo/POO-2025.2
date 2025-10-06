@@ -6,6 +6,8 @@ import java.time.LocalDateTime;
 
 
 public class Consulta {
+    private static int idCUniversal = 1 ;
+    private final int idConsulta;
     private Paciente paciente;
     private Medico medico;
     private LocalDateTime horarioConsulta;
@@ -16,6 +18,7 @@ public class Consulta {
 
 
     public Consulta(Paciente paciente, Medico medico, Especialidades especialidade, LocalDateTime horarioConsulta, double custoFinal) {
+        this.idConsulta = idCUniversal++;
         this.paciente = paciente;
         this.medico = medico;
         this.especialidade = especialidade;

@@ -1,4 +1,4 @@
 package REPOSITORIOS.RINTERNACAO;
 
-public class REP_INTERNACAO_RAM {
+public class REP_INTERNACAO_RAM implements REP_INTERNACAO {
 }
