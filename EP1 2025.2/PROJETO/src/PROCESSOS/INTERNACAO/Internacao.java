@@ -14,7 +14,7 @@ public class Internacao{
     public RelatorioInternacao relatorioInternacao;
     public Status status;
 
-    public Internacao(Paciente paciente, Leito leito) {
+    public Internacao(Paciente paciente, Leito leito) throws LeitoOcupado {
         this.idInternacao = idIUniversal++;
         this.paciente = paciente;
         this.leito = leito;

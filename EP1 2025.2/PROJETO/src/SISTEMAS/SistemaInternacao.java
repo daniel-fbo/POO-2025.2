@@ -1,8 +1,24 @@
 package SISTEMAS;
+import ENTIDADES.PACIENTE.Paciente;
+import PROCESSOS.INTERNACAO.*;
+import REPOSITORIOS.RPACIENTE.*;
+import REPOSITORIOS.RINTERNACAO.*;
+import java.util.Optional;
 import java.util.Scanner;
 
 public class SistemaInternacao implements Menu {
-    private Scanner input = new Scanner(System.in);
+    private final Scanner input;
+    private final REP_PACIENTE rPaciente;
+    private final GerenciadorLeitos gerenciadorLeitos;
+    private final REP_INTERNACAO rInternacao;
+
+    public SistemaInternacao(Scanner input, REP_PACIENTE pRepo, GerenciadorLeitos gLeitos, REP_INTERNACAO iRepo) {
+        this.input = input;
+        this.rPaciente = pRepo;
+        this.gerenciadorLeitos = gLeitos;
+        this.rInternacao = iRepo;
+    }
+
 
     @Override
     public void abrirMenu(){
