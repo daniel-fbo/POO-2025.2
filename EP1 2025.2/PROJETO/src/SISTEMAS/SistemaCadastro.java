@@ -52,6 +52,7 @@ public class SistemaCadastro implements Menu {
     }
 
     public void cadastrarPaciente () {
+        System.out.println("\n--- Cadastro de Paciente ---");
         System.out.print("Nome: ");
         String nome = input.nextLine();
         System.out.print("CPF: ");
@@ -134,6 +135,7 @@ public class SistemaCadastro implements Menu {
     }
 
     public void cadastrarMedico() {
+        System.out.println("\n--- Cadastro de Médico ---");
         System.out.print("Nome: ");
         String nome = input.nextLine();
         System.out.print("CRM: ");
@@ -168,6 +170,7 @@ public class SistemaCadastro implements Menu {
     }
 
     public void cadastrarPlano(){
+        System.out.println("\n--- Cadastro de Plano ---");
         int opcao;
         System.out.print("Nome: ");
         String nome = input.nextLine();
@@ -256,6 +259,7 @@ public class SistemaCadastro implements Menu {
     }
 
     public void cadastrarEspecialidade(){
+        System.out.println("\n--- Cadastro de Especialização ---");
         System.out.print("Nome: ");
         String nome = input.nextLine();
         Especialidades novaEspecialidade = new Especialidades(nome);
