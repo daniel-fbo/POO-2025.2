@@ -1,10 +1,6 @@
 package REPOSITORIOS.RCONSULTA;
 import PROCESSOS.CONSULTAS.Consulta;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
-
+import java.util.*;
 public class REP_CONSULTA_RAM implements REP_CONSULTA {
     List<Consulta> listaConsultas = new ArrayList<>();
 

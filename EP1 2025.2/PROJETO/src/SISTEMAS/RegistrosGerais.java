@@ -1,14 +1,37 @@
 package SISTEMAS;
+import REPOSITORIOS.RCONSULTA.*;
+import REPOSITORIOS.RESPECIALIDADE.*;
+import REPOSITORIOS.RINTERNACAO.*;
+import REPOSITORIOS.RMEDICO.*;
+import REPOSITORIOS.RPACIENTE.*;
+import REPOSITORIOS.RPLANODESAUDE.*;
 import java.util.Scanner;
 
 public class RegistrosGerais implements Menu {
-    Scanner input = new Scanner(System.in);
-    String tecla;
+    REP_PACIENTE rPaciente;
+    REP_MEDICO rMedico;
+    REP_PLANO rPlano;
+    REP_CONSULTA rConsulta;
+    REP_INTERNACAO rInternacao;
+    REP_ESPECIALIDADE rEspecialidade;
+    Scanner input;
+
+    public RegistrosGerais(Scanner input,REP_PACIENTE rPaciente, REP_MEDICO rMedico, REP_PLANO rPlano, REP_CONSULTA rConsulta,REP_INTERNACAO rInternacao,REP_ESPECIALIDADE rEspecialidade){
+        this.input = input;
+        this.rPaciente = rPaciente;
+        this.rMedico = rMedico;
+        this.rPlano = rPlano;
+        this.rConsulta = rConsulta;
+        this.rInternacao = rInternacao;
+        this.rEspecialidade = rEspecialidade;
+    }
+
 
     @Override
     public void abrirMenu() {
+        String tecla;
         do {
-            System.out.println("\n==== SISTEMA DE CADASTRO ====");
+            System.out.println("\n==== SISTEMA DE REGISTRO ====");
             System.out.println("1 - Registros de pacientes.");
             System.out.println("2 - Registros de médicos.");
             System.out.println("3 - Registros de planos de saúde.");
@@ -19,23 +42,19 @@ public class RegistrosGerais implements Menu {
 
             try{
                 switch (tecla) {
-                    case "1" -> registrosPaciente();
-                    case "2" -> registrosMedico();
-                    case "3" -> registrosPlano();
-                    case "4" -> registrosConsulta();
-                    case "5" -> registrosInternacao();
+                    case "1" -> rPaciente.listarPacientes();
+                    case "2" -> rMedico.listarMedicos();
+                    case "3" -> rPlano.listarPlanos();
+                    case "4" -> rConsulta.listarConsultas();
+                    case "5" -> rInternacao.listarInternacoes();
                     case "6" -> System.out.println("SISTEMA FECHADO");
                     default -> System.out.println("Opção inválida.");
                 }
-            } catch ()
+            } catch (Exception e){
+                System.out.println(e.getMessage());
+            }
 
         } while (!tecla.equals("6"));
     }
-
-    public void registrosPaciente();
-    public void registrosMedico();
-    public void registrosPlano();
-    public void registrosConsulta();
-    public void registrosInternacao();
 
 }

@@ -7,4 +7,5 @@ public class HorarioIndisponivel extends Exception {
         super("O horário "+ horarioConsulta + "\n" +
                 "está indisponível para o(a) Dr.(a) " + medico.getNome());
     }
+
 }

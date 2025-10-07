@@ -2,15 +2,12 @@ package SISTEMAS;
 import ENTIDADES.PACIENTE.*;
 import ENTIDADES.MEDICO.*;
 import ENTIDADES.PLANODESAUDE.*;
-import ENTIDADES.MEDICO.Especialidades;
 import REPOSITORIOS.RESPECIALIDADE.*;
 import REPOSITORIOS.RMEDICO.*;
 import REPOSITORIOS.RPACIENTE.*;
 import REPOSITORIOS.RPLANODESAUDE.*;
 import java.util.List;
 import java.util.Scanner;
-
-
 
 public class SistemaCadastro implements Menu {
     private final Scanner input;
@@ -19,8 +16,7 @@ public class SistemaCadastro implements Menu {
     private final REP_PLANO rPlano;
     private final REP_ESPECIALIDADE rEspecialidade;
 
-    public SistemaCadastro(Scanner input, REP_PACIENTE rPaciente, REP_MEDICO rMedico,
-                           REP_PLANO rPlano, REP_ESPECIALIDADE rEspecialidade){
+    public SistemaCadastro(Scanner input, REP_PACIENTE rPaciente, REP_MEDICO rMedico, REP_PLANO rPlano, REP_ESPECIALIDADE rEspecialidade){
 
         this.input = input;
         this.rPaciente = rPaciente;

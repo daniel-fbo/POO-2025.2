@@ -1,10 +1,7 @@
 package REPOSITORIOS.RMEDICO;
 import ENTIDADES.MEDICO.Medico;
+import java.util.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
 
 public class REP_MEDICO_RAM implements REP_MEDICO {
     List<Medico> listaMedicos = new ArrayList<>();
@@ -29,4 +26,5 @@ public class REP_MEDICO_RAM implements REP_MEDICO {
         return Collections.unmodifiableList(listaMedicos);
 
     };
+
 }

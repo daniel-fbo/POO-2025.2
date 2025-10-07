@@ -4,6 +4,7 @@ import REPOSITORIOS.RINTERNACAO.*;
 import REPOSITORIOS.RMEDICO.*;
 import REPOSITORIOS.RPACIENTE.*;
 import REPOSITORIOS.RPLANODESAUDE.*;
+import PROCESSOS.INTERNACAO.GerenciadorLeitos;
 import SISTEMAS.*;
 import java.util.Scanner;
 
@@ -15,14 +16,15 @@ public class Main{
         REP_CONSULTA rConsulta = new REP_CONSULTA_RAM();
         REP_INTERNACAO rInternacao = new REP_INTERNACAO_RAM();
         REP_ESPECIALIDADE rEspecialidade = new REP_ESPECIALIDADE_RAM();
+        GerenciadorLeitos gLeitos = new GerenciadorLeitos(10,5,3);
 
         Scanner input = new Scanner(System.in);
         SistemaCadastro tecla1 = new SistemaCadastro(input, rPaciente, rMedico, rPlano, rEspecialidade);
-        SistemaInternacao tecla2 = new SistemaInternacao();
-        SistemaConsultas tecla3 = new SistemaConsultas();
-        RegistrosGerais tecla4 = new RegistrosGerais();
-        String tecla;
+        SistemaInternacao tecla2 = new SistemaInternacao(input, rPaciente,rInternacao, gLeitos);
+        SistemaConsultas tecla3 = new SistemaConsultas(input, rConsulta);
+        RegistrosGerais tecla4 = new RegistrosGerais(input, rPaciente, rMedico, rPlano, rConsulta, rInternacao, rEspecialidade);
 
+        String tecla;
         do {
             System.out.println("\n==== HOSPITAL DIAC ====");
             System.out.println("1 - Sistema de Cadastro");

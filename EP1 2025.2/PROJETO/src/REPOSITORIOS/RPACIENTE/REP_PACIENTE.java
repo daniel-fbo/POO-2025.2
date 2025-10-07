@@ -1,7 +1,6 @@
 package REPOSITORIOS.RPACIENTE;
 import ENTIDADES.PACIENTE.Paciente;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public interface REP_PACIENTE {
     void salvarPaciente(Paciente paciente);

@@ -1,9 +1,6 @@
 package REPOSITORIOS.RPLANODESAUDE;
 import ENTIDADES.PLANODESAUDE.PlanoDeSaude;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class REP_PLANO_RAM implements REP_PLANO {
     private static final List<PlanoDeSaude> listaPlanos = new ArrayList<>();

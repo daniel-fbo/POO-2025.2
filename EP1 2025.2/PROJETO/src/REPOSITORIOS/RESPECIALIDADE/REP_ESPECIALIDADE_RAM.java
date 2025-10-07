@@ -1,12 +1,10 @@
 package REPOSITORIOS.RESPECIALIDADE;
 import ENTIDADES.MEDICO.Especialidades;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+
 
 public class REP_ESPECIALIDADE_RAM implements REP_ESPECIALIDADE {
     private static final List<Especialidades> listaEspecialidades = new ArrayList<>();
-
     static {
             listaEspecialidades.add(new Especialidades("Cardiologia"));
             listaEspecialidades.add(new Especialidades("Cirurgia"));
@@ -27,6 +25,7 @@ public class REP_ESPECIALIDADE_RAM implements REP_ESPECIALIDADE {
         public List<Especialidades> listarEspecialidades() {
             return Collections.unmodifiableList(listaEspecialidades);
         }
+
 }
 
 

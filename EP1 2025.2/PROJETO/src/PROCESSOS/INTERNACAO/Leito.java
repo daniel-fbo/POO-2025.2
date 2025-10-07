@@ -1,13 +1,16 @@
 package PROCESSOS.INTERNACAO;
 import ENTIDADES.PACIENTE.*;
-
-
 public class Leito {
+
+/////////////////////   ATRIBUTOS    /////////////////////
+
     private final short idLeito;
     private boolean ocupado;
     private final TipoLeito tipoLeito;
     private Paciente paciente;
     private double custoDiario;
+
+//////////////////////  CONSTRUTOR   /////////////////////
 
     public Leito(short codigoLeito, TipoLeito tipoLeito, double custoDiario) {
         this.idLeito = codigoLeito;
@@ -16,6 +19,8 @@ public class Leito {
         this.paciente = null;
         this.custoDiario = custoDiario;
     }
+
+/////////////////  GETTERS & SETTERS   //////////////////
 
     public short getIdLeito(){
         return idLeito;
@@ -33,6 +38,8 @@ public class Leito {
         return paciente;
     }
 
+/////////////////////  MÉTODOS   ///////////////////////
+
     public void ocupar(Paciente paciente) throws LeitoOcupado {
         if (this.ocupado) {
             throw new LeitoOcupado(this, this.paciente);
@@ -40,7 +47,6 @@ public class Leito {
         this.paciente = paciente;
         this.ocupado = true;
     }
-
 
     public void liberar() {
         this.paciente = null;
@@ -53,6 +59,7 @@ public class Leito {
                 "Tipo de leito: "+ tipoLeito + ". \n" +
                 "Ocupado por " + (paciente == null ?  "—" : paciente.nome);
     }
+
 }
 
 

@@ -1,19 +1,20 @@
 package ENTIDADES.MEDICO;
 
 public class Especialidades {
+
+/////////////////////   ATRIBUTOS    /////////////////////
+
     public static int idEUniversal;
     public final int id;
     public String nome;
+//////////////////////  CONSTRUTOR   /////////////////////
 
     public Especialidades(String nome){
         this.id = idEUniversal++;
         this.nome = nome;
     }
 
-
-    public int getId() {
-        return id;
-    }
+/////////////////  GETTERS & SETTERS   //////////////////
 
     public String getNome() {
         return nome;
@@ -22,6 +23,8 @@ public class Especialidades {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+/////////////////////  MÉTODOS   ///////////////////////
 
     @Override
     public String toString() {

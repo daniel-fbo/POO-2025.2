@@ -2,13 +2,15 @@ package SISTEMAS;
 import PROCESSOS.CONSULTAS.Consulta;
 import PROCESSOS.CONSULTAS.RelatorioConsulta;
 import REPOSITORIOS.RCONSULTA.REP_CONSULTA;
-
-import java.util.Optional;
-import java.util.Scanner;
+import java.util.*;
 
 public class SistemaConsultas implements Menu {
-    private Scanner input = new Scanner(System.in);
+    private Scanner input;
     private REP_CONSULTA rConsulta;
+    public SistemaConsultas(Scanner input, REP_CONSULTA rConsulta){
+        this.input = input;
+        this.rConsulta = rConsulta;
+    }
 
     @Override
     public void abrirMenu(){
@@ -36,6 +38,7 @@ public class SistemaConsultas implements Menu {
     public void agendarConsulta(){
 
     };
+
     public void processarConsulta(){
         System.out.println("\n--- Gerar Relatório de Consoulta ---");
         System.out.print("Digite o código de identificação da consulta: ");
@@ -53,6 +56,5 @@ public class SistemaConsultas implements Menu {
         System.out.println(relatorio);
 
     };
-
 
 }

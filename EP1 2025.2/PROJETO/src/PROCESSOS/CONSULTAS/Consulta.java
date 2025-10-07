@@ -1,12 +1,12 @@
 package PROCESSOS.CONSULTAS;
 import ENTIDADES.PACIENTE.*;
 import ENTIDADES.MEDICO.*;
-import ENTIDADES.MEDICO.Especialidades;
-
 import java.time.LocalDateTime;
 
-
 public class Consulta {
+
+/////////////////////   ATRIBUTOS    /////////////////////
+
     public static int idCUniversal = 1 ;
     public final int idConsulta;
     public final Paciente paciente;
@@ -16,7 +16,9 @@ public class Consulta {
     public Status status;
     public Especialidades especialidade;
     public double custoFinal;
+    public Diagnostico diagnostico;
 
+//////////////////////  CONSTRUTOR   /////////////////////
 
     public Consulta(Paciente paciente, Medico medico, LocalDateTime horarioConsulta, double custoFinal) {
         this.idConsulta = idCUniversal++;
@@ -26,7 +28,10 @@ public class Consulta {
         this.horarioConsulta = horarioConsulta;
         this.custoFinal = custoFinal;
         this.status = Status.MARCADO;
+        this.diagnostico = null;
     }
+
+ /////////////////  GETTERS & SETTERS   //////////////////
 
     public Paciente getPaciente() {
         return paciente;
@@ -46,6 +51,12 @@ public class Consulta {
 
     public void setCustoFinal(double custoFinal) {
         this.custoFinal = custoFinal;
+    }
+
+/////////////////////  MÉTODOS   ///////////////////////
+
+    public RelatorioConsulta registrarConsulta() {
+        return this.relatorioConsulta;
     }
 
     @Override

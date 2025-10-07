@@ -1,9 +1,6 @@
 package REPOSITORIOS.RPACIENTE;
 import ENTIDADES.PACIENTE.Paciente;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class REP_PACIENTE_RAM implements REP_PACIENTE {
     private static final List<Paciente> listaPacientes = new ArrayList<>();
@@ -25,6 +22,5 @@ public class REP_PACIENTE_RAM implements REP_PACIENTE {
     public List<Paciente> listarPacientes(){
         return Collections.unmodifiableList(listaPacientes);
     }
-
 
 }

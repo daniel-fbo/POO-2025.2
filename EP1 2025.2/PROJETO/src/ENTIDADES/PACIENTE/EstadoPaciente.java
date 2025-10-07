@@ -5,4 +5,5 @@ public enum EstadoPaciente {
     Verde,
     Amarelo,
     Vermelho,
+
 }

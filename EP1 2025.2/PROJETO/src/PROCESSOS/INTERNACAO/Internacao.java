@@ -7,6 +7,9 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Internacao{
+
+/////////////////////   ATRIBUTOS    /////////////////////
+
     private static int idIUniversal = 1;
     public final int idInternacao;
     public Paciente paciente;
@@ -16,6 +19,7 @@ public class Internacao{
     public RelatorioInternacao relatorioInternacao;
     public Status status;
 
+//////////////////////  CONSTRUTOR   /////////////////////
     public Internacao(Paciente paciente, Leito leito) throws LeitoOcupado {
         this.idInternacao = idIUniversal++;
         this.paciente = paciente;
@@ -31,6 +35,18 @@ public class Internacao{
         this.status = Status.EM_PROCESSO;
     }
 
+/////////////////  GETTERS & SETTERS   //////////////////
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+/////////////////////  MÉTODOS   ///////////////////////
+
+    public boolean isAtiva() {
+        return horarioAlta == null;
+    }
+
     public RelatorioInternacao registrarAlta() {
         if (this.horarioAlta == null) {
             this.horarioAlta = LocalDateTime.now();
@@ -42,15 +58,6 @@ public class Internacao{
             return this.relatorioInternacao;
         }
         return this.relatorioInternacao;
-    }
-
-
-    public Paciente getPaciente() {
-        return paciente;
-    }
-
-    public boolean isAtiva() {
-        return horarioAlta == null;
     }
 
 }

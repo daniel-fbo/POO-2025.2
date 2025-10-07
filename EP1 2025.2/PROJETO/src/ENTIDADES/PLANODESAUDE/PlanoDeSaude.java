@@ -2,12 +2,17 @@ package ENTIDADES.PLANODESAUDE;
 import ENTIDADES.MEDICO.Especialidades;
 
 public class PlanoDeSaude {
+
+/////////////////////   ATRIBUTOS    /////////////////////
+
     public static int idPUniversal = 1 ;
     public final int idPlano;
     public String nome;
     public float descontoConsulta;
     public float descontoInternacao;
     private Especialidades especialidade;
+
+//////////////////////  CONSTRUTOR   /////////////////////
 
     public PlanoDeSaude(String nome, float descontoConsulta, float descontoInternacao, Especialidades especialidade){
         this.idPlano = idPUniversal;
@@ -17,7 +22,10 @@ public class PlanoDeSaude {
         this.especialidade = especialidade;
     }
 
+/////////////////  GETTERS & SETTERS   //////////////////
+
     public String getNome(){
         return nome;
     }
+
 }

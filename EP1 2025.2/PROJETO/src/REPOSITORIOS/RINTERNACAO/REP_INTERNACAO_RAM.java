@@ -1,10 +1,7 @@
 package REPOSITORIOS.RINTERNACAO;
 import PROCESSOS.CONSULTAS.Status;
 import PROCESSOS.INTERNACAO.Internacao;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class REP_INTERNACAO_RAM implements REP_INTERNACAO {
     List<Internacao> listaInternacoes = new ArrayList<>();

@@ -1,7 +1,6 @@
 package REPOSITORIOS.RPLANODESAUDE;
 import ENTIDADES.PLANODESAUDE.PlanoDeSaude;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public interface REP_PLANO {
     void salvarPlano(PlanoDeSaude plano);

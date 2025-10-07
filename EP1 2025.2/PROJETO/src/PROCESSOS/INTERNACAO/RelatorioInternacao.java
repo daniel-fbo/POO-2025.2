@@ -7,7 +7,7 @@ public record RelatorioInternacao(
         Paciente paciente,
         Leito leito,
         Duration duracao,
-        double custoTotal) {
+        double custoFinal) {
 
     @Override
     public String toString() {
@@ -29,7 +29,7 @@ public record RelatorioInternacao(
                 leito.getTipoLeito(),
                 dias,
                 horas,
-                custoTotal);
+                custoFinal);
 
         return string;
     }

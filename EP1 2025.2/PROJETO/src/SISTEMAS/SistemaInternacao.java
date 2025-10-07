@@ -10,14 +10,13 @@ import ENTIDADES.PACIENTE.EstadoPaciente;
 public class SistemaInternacao implements Menu {
     private final Scanner input;
     private final REP_PACIENTE rPaciente;
-    private final GerenciadorLeitos gerenciadorLeitos;
     private final REP_INTERNACAO rInternacao;
-
-    public SistemaInternacao(Scanner input, REP_PACIENTE pRepo, GerenciadorLeitos gLeitos, REP_INTERNACAO iRepo) {
+    private final GerenciadorLeitos gerenciadorLeitos;
+    public SistemaInternacao(Scanner input, REP_PACIENTE rPaciente, REP_INTERNACAO rInternacao, GerenciadorLeitos gLeitos) {
         this.input = input;
-        this.rPaciente = pRepo;
+        this.rPaciente = rPaciente;
+        this.rInternacao = rInternacao;
         this.gerenciadorLeitos = gLeitos;
-        this.rInternacao = iRepo;
     }
 
 
@@ -67,7 +66,7 @@ public class SistemaInternacao implements Menu {
         };
 
         System.out.println("Buscando " + tipoLeito + "...");
-        Optional<Leito> oLeitoDisponivel = gerenciadorLeitos.obterLeitoDisponivel(tipoLeito);
+        Optional<Leito> oLeitoDisponivel = gerenciadorLeitos.getLeitoDisponivel(tipoLeito);
 
         if (oLeitoDisponivel.isEmpty()) {
             System.out.println("Nenhum " + tipoLeito + " está disponível no momento.");
