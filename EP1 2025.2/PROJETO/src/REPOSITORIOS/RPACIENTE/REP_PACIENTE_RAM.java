@@ -1,6 +1,7 @@
 package REPOSITORIOS.RPACIENTE;
 import ENTIDADES.PACIENTE.Paciente;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,7 +23,7 @@ public class REP_PACIENTE_RAM implements REP_PACIENTE {
 
     @Override
     public List<Paciente> listarPacientes(){
-        return new ArrayList<>(listaPacientes);
+        return Collections.unmodifiableList(listaPacientes);
     }
 
 

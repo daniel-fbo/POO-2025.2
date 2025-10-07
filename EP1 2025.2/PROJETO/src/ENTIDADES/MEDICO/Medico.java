@@ -1,4 +1,7 @@
 package ENTIDADES.MEDICO;
+
+import ENTIDADES.ESPECIALIDADE.Especialidades;
+
 public class Medico {
     private final String nome;
     private final String crm;

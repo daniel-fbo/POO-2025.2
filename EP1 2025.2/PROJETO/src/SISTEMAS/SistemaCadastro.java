@@ -2,6 +2,8 @@ package SISTEMAS;
 import ENTIDADES.PACIENTE.*;
 import ENTIDADES.MEDICO.*;
 import ENTIDADES.PLANODESAUDE.*;
+import ENTIDADES.ESPECIALIDADE.Especialidades;
+import REPOSITORIOS.RESPECIALIDADE.*;
 import REPOSITORIOS.RMEDICO.*;
 import REPOSITORIOS.RPACIENTE.*;
 import REPOSITORIOS.RPLANODESAUDE.*;
@@ -15,12 +17,15 @@ public class SistemaCadastro implements Menu {
     private final REP_PACIENTE rPaciente;
     private final REP_MEDICO rMedico;
     private final REP_PLANO rPlano;
+    private final REP_ESPECIALIDADE rEspecialidade;
 
-    public SistemaCadastro(Scanner input, REP_PACIENTE rPaciente, REP_MEDICO rMedico, REP_PLANO rPlano){
+    public SistemaCadastro(Scanner input, REP_PACIENTE rPaciente, REP_MEDICO rMedico,
+                           REP_PLANO rPlano, REP_ESPECIALIDADE rEspecialidade){
         this.input = input;
         this.rPaciente = rPaciente;
         this.rMedico = rMedico;
         this.rPlano = rPlano;
+        this.rEspecialidade = rEspecialidade;
     }
 
     @Override
@@ -30,17 +35,19 @@ public class SistemaCadastro implements Menu {
             System.out.println("\n==== SISTEMA DE CADASTRO ====");
             System.out.println("1 - Cadastro de paciente.");
             System.out.println("2 - Cadastro de médico.");
-            System.out.println("3 - Cadastro de médico.");
-            System.out.println("4 - Voltar ao menu principal: ");
+            System.out.println("2 - Cadastro de especialidade médico.");
+            System.out.println("4 - Cadastro de plano de saúde.");
+            System.out.println("5 - Voltar ao menu principal: ");
             tecla = input.nextLine();
             switch (tecla) {
                 case "1" -> cadastrarPaciente();
                 case "2" -> cadastrarMedico();
                 case "3" -> cadastrarPlano();
-                case "4" -> System.out.println("SISTEMA FECHADO");
+                case "4" -> cadastrarEspecialidade();
+                case "5" -> System.out.println("SISTEMA FECHADO");
                 default -> System.out.println("Opção inválida.");
             }
-        } while (!tecla.equals("4"));
+        } while (!tecla.equals("5"));
     }
 
     public void cadastrarPaciente () {
@@ -133,23 +140,23 @@ public class SistemaCadastro implements Menu {
         System.out.print("Custo da consulta: ");
         double custoConsulta = input.nextShort();
 
-        Especialidades[] listaEspecialidades = Especialidades.values();
+        List<Especialidades> listaEspecialidades = rEspecialidade.listarEspecialidades();
         Especialidades especialidade = null;
         System.out.println("Especialidade do médico:");
-        for(int i = 0; i < listaEspecialidades.length; i++){
-            System.out.println((i+1) + " - " + listaEspecialidades[i] + ".");
+        for(int i = 0; i < listaEspecialidades.size(); i++){
+            System.out.println((i+1) + " - " + listaEspecialidades.get(i) + ".");
         }
 
         while (especialidade == null){
             try{
                 System.out.println("Digite a opção correspondente:");
                 short opcao = input.nextShort();
-                if (opcao < 1 || opcao > listaEspecialidades.length){
+                if (opcao < 1 || opcao > listaEspecialidades.size()){
                     throw new IllegalArgumentException("Opção inválida.");
                 }
-                especialidade = listaEspecialidades[opcao - 1];
+                especialidade = listaEspecialidades.get(opcao-1);
             } catch (Exception e){
-                System.out.println("Digite um número entre 1 e "+ listaEspecialidades.length + ".");
+                System.out.println("Digite um número entre 1 e "+ listaEspecialidades.size() + ".");
                 input.nextLine(); //LimpaBuffer
             }
         }
@@ -221,23 +228,23 @@ public class SistemaCadastro implements Menu {
             default -> descontoInternacao = 1f;
         }
 
-        Especialidades[] listaEspecialidades = Especialidades.values();
+        List<Especialidades> listaEspecialidades = rEspecialidade.listarEspecialidades();
         Especialidades especialidade = null;
         System.out.println("Especialidade com desconto especial:");
-        for(int i = 0; i < listaEspecialidades.length; i++){
-            System.out.println((i+1) + " - " + listaEspecialidades[i] + ".");
+        for(int i = 0; i < listaEspecialidades.size(); i++){
+            System.out.println((i+1) + " - " + listaEspecialidades.get(i) + ".");
         }
 
         while (especialidade == null){
             try{
                 System.out.println("Digite a opção correspondente:");
                 opcao = input.nextShort();
-                if (opcao < 1 || opcao > listaEspecialidades.length){
+                if (opcao < 1 || opcao > listaEspecialidades.size()){
                     throw new IllegalArgumentException("Opção inválida.");
                 }
-                especialidade = listaEspecialidades[opcao - 1];
+                especialidade = listaEspecialidades.get(opcao - 1);
             } catch (Exception e){
-                System.out.println("Digite um número entre 1 e "+ listaEspecialidades.length + ".");
+                System.out.println("Digite um número entre 1 e "+ listaEspecialidades.size() + ".");
                 input.nextLine(); //LimpaBuffer
             }
         }
@@ -246,6 +253,10 @@ public class SistemaCadastro implements Menu {
 
         rPlano.salvarPlano(plano);
     }
+
+    public void cadastrarEspecialidade({
+
+    })
 
 }
 

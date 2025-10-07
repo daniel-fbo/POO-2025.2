@@ -1,6 +1,7 @@
 package REPOSITORIOS.RPLANODESAUDE;
 import ENTIDADES.PLANODESAUDE.PlanoDeSaude;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -21,7 +22,7 @@ public class REP_PLANO_RAM implements REP_PLANO {
 
     @Override
     public List<PlanoDeSaude> listarPlanos(){
-        return new ArrayList<>(listaPlanos);
+        return Collections.unmodifiableList(listaPlanos);
     }
 
 }

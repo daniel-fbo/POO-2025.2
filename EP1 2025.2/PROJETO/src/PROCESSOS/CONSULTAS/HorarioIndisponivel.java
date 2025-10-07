@@ -1,7 +1,5 @@
 package PROCESSOS.CONSULTAS;
-
 import ENTIDADES.MEDICO.Medico;
-
 import java.time.LocalDateTime;
 
 public class HorarioIndisponivel extends Exception {

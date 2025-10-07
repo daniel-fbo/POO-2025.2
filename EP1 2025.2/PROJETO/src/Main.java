@@ -1,4 +1,5 @@
 import REPOSITORIOS.RCONSULTA.*;
+import REPOSITORIOS.RESPECIALIDADE.*;
 import REPOSITORIOS.RINTERNACAO.*;
 import REPOSITORIOS.RMEDICO.*;
 import REPOSITORIOS.RPACIENTE.*;
@@ -13,9 +14,10 @@ public class Main{
         REP_PLANO rPlano = new REP_PLANO_RAM();
         REP_CONSULTA rConsulta = new REP_CONSULTA_RAM();
         REP_INTERNACAO rInternacao = new REP_INTERNACAO_RAM();
+        REP_ESPECIALIDADE rEspecialidade = new REP_ESPECIALIDADE_RAM();
 
         Scanner input = new Scanner(System.in);
-        SistemaCadastro tecla1 = new SistemaCadastro(input, rPaciente, rMedico, rPlano);
+        SistemaCadastro tecla1 = new SistemaCadastro(input, rPaciente, rMedico, rPlano, rEspecialidade);
         SistemaInternacao tecla2 = new SistemaInternacao();
         SistemaAgendamento tecla3 = new SistemaAgendamento();
         RegistrosGerais tecla4 = new RegistrosGerais();
