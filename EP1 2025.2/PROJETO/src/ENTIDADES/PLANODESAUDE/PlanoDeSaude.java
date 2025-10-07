@@ -1,5 +1,5 @@
 package ENTIDADES.PLANODESAUDE;
-import ENTIDADES.ESPECIALIDADE.Especialidades;
+import ENTIDADES.MEDICO.Especialidades;
 
 public class PlanoDeSaude {
     public static int idPUniversal = 1 ;

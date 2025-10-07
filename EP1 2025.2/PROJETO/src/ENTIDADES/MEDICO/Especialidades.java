@@ -1,9 +1,9 @@
-package ENTIDADES.ESPECIALIDADE;
+package ENTIDADES.MEDICO;
 
 public class Especialidades {
-    private static int idEUniversal;
-    private final int id;
-    private String nome;
+    public static int idEUniversal;
+    public final int id;
+    public String nome;
 
     public Especialidades(String nome){
         this.id = idEUniversal++;

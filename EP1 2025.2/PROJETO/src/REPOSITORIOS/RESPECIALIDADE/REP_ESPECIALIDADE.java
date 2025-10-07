@@ -1,5 +1,5 @@
 package REPOSITORIOS.RESPECIALIDADE;
-import ENTIDADES.ESPECIALIDADE.Especialidades;
+import ENTIDADES.MEDICO.Especialidades;
 import java.util.List;
 
 public interface REP_ESPECIALIDADE {

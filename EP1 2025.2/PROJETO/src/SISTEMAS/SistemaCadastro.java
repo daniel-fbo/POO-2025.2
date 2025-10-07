@@ -2,7 +2,7 @@ package SISTEMAS;
 import ENTIDADES.PACIENTE.*;
 import ENTIDADES.MEDICO.*;
 import ENTIDADES.PLANODESAUDE.*;
-import ENTIDADES.ESPECIALIDADE.Especialidades;
+import ENTIDADES.MEDICO.Especialidades;
 import REPOSITORIOS.RESPECIALIDADE.*;
 import REPOSITORIOS.RMEDICO.*;
 import REPOSITORIOS.RPACIENTE.*;
@@ -21,6 +21,7 @@ public class SistemaCadastro implements Menu {
 
     public SistemaCadastro(Scanner input, REP_PACIENTE rPaciente, REP_MEDICO rMedico,
                            REP_PLANO rPlano, REP_ESPECIALIDADE rEspecialidade){
+
         this.input = input;
         this.rPaciente = rPaciente;
         this.rMedico = rMedico;
@@ -35,7 +36,7 @@ public class SistemaCadastro implements Menu {
             System.out.println("\n==== SISTEMA DE CADASTRO ====");
             System.out.println("1 - Cadastro de paciente.");
             System.out.println("2 - Cadastro de médico.");
-            System.out.println("2 - Cadastro de especialidade médico.");
+            System.out.println("2 - Cadastro de especialidade médica.");
             System.out.println("4 - Cadastro de plano de saúde.");
             System.out.println("5 - Voltar ao menu principal: ");
             tecla = input.nextLine();
@@ -254,9 +255,12 @@ public class SistemaCadastro implements Menu {
         rPlano.salvarPlano(plano);
     }
 
-    public void cadastrarEspecialidade({
-
-    })
+    public void cadastrarEspecialidade(){
+        System.out.print("Nome: ");
+        String nome = input.nextLine();
+        Especialidades novaEspecialidade = new Especialidades(nome);
+        rEspecialidade.salvarEspecialidade(novaEspecialidade);
+    }
 
 }
 

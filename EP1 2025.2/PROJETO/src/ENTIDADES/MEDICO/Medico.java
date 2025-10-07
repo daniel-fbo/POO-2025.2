@@ -1,13 +1,11 @@
 package ENTIDADES.MEDICO;
 
-import ENTIDADES.ESPECIALIDADE.Especialidades;
-
 public class Medico {
-    private final String nome;
-    private final String crm;
-    private double custoConsulta;
-    private Agenda agenda;
-    private Especialidades especialidade;
+    public final String nome;
+    public final String crm;
+    public double custoConsulta;
+    public Agenda agenda;
+    public Especialidades especialidade;
 
     public Medico(String nome, String crm, double custoConsulta, Especialidades especialidade){
         this.nome = nome;

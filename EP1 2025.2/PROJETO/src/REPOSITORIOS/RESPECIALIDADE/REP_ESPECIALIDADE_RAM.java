@@ -1,5 +1,5 @@
 package REPOSITORIOS.RESPECIALIDADE;
-import ENTIDADES.ESPECIALIDADE.Especialidades;
+import ENTIDADES.MEDICO.Especialidades;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -18,7 +18,8 @@ public class REP_ESPECIALIDADE_RAM implements REP_ESPECIALIDADE {
         }
 
         @Override
-        public void salvarEspecialidades(Especialidades especialidade) {
+        public void salvarEspecialidade(Especialidades especialidade) {
+            listaEspecialidades.removeIf(p -> p.nome.equals(especialidade.nome));
             listaEspecialidades.add(especialidade);
         }
 
