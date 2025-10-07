@@ -5,6 +5,6 @@ import java.util.Optional;
 
 public interface REP_CONSULTA {
     void salvar(Consulta consulta);
-    Optional<Consulta> buscarIdC(int idConsulta);
+    Optional<Consulta> buscarIdConsulta(int idConsulta);
     List<Consulta> listarConsultas();
 }

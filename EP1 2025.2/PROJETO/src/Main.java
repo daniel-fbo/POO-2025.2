@@ -19,7 +19,7 @@ public class Main{
         Scanner input = new Scanner(System.in);
         SistemaCadastro tecla1 = new SistemaCadastro(input, rPaciente, rMedico, rPlano, rEspecialidade);
         SistemaInternacao tecla2 = new SistemaInternacao();
-        SistemaAgendamento tecla3 = new SistemaAgendamento();
+        SistemaConsultas tecla3 = new SistemaConsultas();
         RegistrosGerais tecla4 = new RegistrosGerais();
         String tecla;
 
@@ -27,7 +27,7 @@ public class Main{
             System.out.println("\n==== HOSPITAL DIAC ====");
             System.out.println("1 - Sistema de Cadastro");
             System.out.println("2 - Sistema de Internação");
-            System.out.println("3 - Agendar nova consulta");
+            System.out.println("3 - Sistema de Consulta");
             System.out.println("4 - Buscar nos registros");
             System.out.println("5 - Sair do sistema.");
             System.out.print("Digite a opção desejada: ");

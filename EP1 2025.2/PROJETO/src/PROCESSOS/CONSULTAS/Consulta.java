@@ -7,15 +7,15 @@ import java.time.LocalDateTime;
 
 
 public class Consulta {
-    private static int idCUniversal = 1 ;
-    private final int idConsulta;
-    private final Paciente paciente;
-    private final Medico medico;
-    private final LocalDateTime horarioConsulta;
-    private RelatorioConsulta relatorioConsulta;
-    private Status status;
-    private Especialidades especialidade;
-    private double custoFinal;
+    public static int idCUniversal = 1 ;
+    public final int idConsulta;
+    public final Paciente paciente;
+    public final Medico medico;
+    public final LocalDateTime horarioConsulta;
+    public RelatorioConsulta relatorioConsulta;
+    public Status status;
+    public Especialidades especialidade;
+    public double custoFinal;
 
 
     public Consulta(Paciente paciente, Medico medico, LocalDateTime horarioConsulta, double custoFinal) {

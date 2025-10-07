@@ -27,21 +27,23 @@ public class SistemaInternacao implements Menu {
         do {
             System.out.println("\n==== SISTEMA DE INTERNAÇÃO ====");
             System.out.println("1 - Internar paciente.");
-            System.out.println("2 - Verificar situação dos leitos.");
+            System.out.println("2- Liberar paciente.");
+            System.out.println("3 - Verificar situação dos leitos.");
             System.out.print("Digite a opção desejada: ");
             tecla = input.nextLine();
             try{
                 switch (tecla) {
                     case "1" -> internarPaciente();
-                    case "2" -> verificarLeitos();
-                    case "3" -> System.out.println("SISTEMA FECHADO");
+                    case "2" -> liberarPaciente();
+                    case "3" -> verificarLeitos();
+                    case "4" -> System.out.println("SISTEMA FECHADO");
                     default -> System.out.println("Opção inválida.");
                 }
-            }catch (LeitoOcupado e){
+            }catch (Exception e){
                 System.out.println(e.getMessage());
                 System.out.println("Por favor, tente novamente.");
             }
-        } while (!tecla.equals("3"));
+        } while (!tecla.equals("4"));
     }
 
     public void internarPaciente() throws LeitoOcupado{
@@ -83,6 +85,23 @@ public class SistemaInternacao implements Menu {
         } catch (LeitoOcupado e) {
             System.out.println(e.getMessage());
         }
+    };
+
+    public void liberarPaciente(){
+        System.out.println("\n--- Registrar Alta de Paciente ---");
+        System.out.print("Digite o CPF do paciente que receberá alta: ");
+        String cpf = input.nextLine();
+
+        Optional<Internacao> oInternacao = rInternacao.buscarCpfAtivo(cpf);
+        if (oInternacao.isEmpty()){
+            System.out.println("Nenhuma internação ativa encontrada para o CPF: " + cpf);
+            return;
+        }
+        Internacao internacao = oInternacao.get();
+        RelatorioInternacao relatorio = internacao.registrarAlta();
+        rInternacao.salvar(internacao);
+        System.out.println("\n+++ ALTA REALIZADA COM SUCESSO +++");
+        System.out.println(relatorio);
     };
 
     public void verificarLeitos(){

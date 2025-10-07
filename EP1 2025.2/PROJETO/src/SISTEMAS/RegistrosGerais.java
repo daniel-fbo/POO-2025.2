@@ -16,15 +16,19 @@ public class RegistrosGerais implements Menu {
             System.out.println("5 - Registros de internações.");
             System.out.println("6 - Voltar ao menu principal: ");
             tecla = input.nextLine();
-            switch (tecla) {
-                case "1" -> registrosPaciente();
-                case "2" -> registrosMedico();
-                case "3" -> registrosPlano();
-                case "4" -> registrosConsulta();
-                case "5" -> registrosInternacao();
-                case "6" -> System.out.println("SISTEMA FECHADO");
-                default -> System.out.println("Opção inválida.");
-            }
+
+            try{
+                switch (tecla) {
+                    case "1" -> registrosPaciente();
+                    case "2" -> registrosMedico();
+                    case "3" -> registrosPlano();
+                    case "4" -> registrosConsulta();
+                    case "5" -> registrosInternacao();
+                    case "6" -> System.out.println("SISTEMA FECHADO");
+                    default -> System.out.println("Opção inválida.");
+                }
+            } catch ()
+
         } while (!tecla.equals("6"));
     }
 
