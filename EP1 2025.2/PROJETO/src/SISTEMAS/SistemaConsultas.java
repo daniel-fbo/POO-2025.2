@@ -128,7 +128,7 @@ public class SistemaConsultas implements Menu {
                 throw new HorarioIndisponivel(medico, horarioConsulta);
             }
 
-            Consulta novaConsulta = new Consulta(paciente, medico, horarioConsulta, );
+            Consulta novaConsulta = new Consulta(paciente, medico, horarioConsulta, custoFinal);
 
             medico.getAgenda().adicionarConsulta(novaConsulta);
 

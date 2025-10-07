@@ -8,7 +8,7 @@ public class Leito {
     private boolean ocupado;
     private final TipoLeito tipoLeito;
     private Paciente paciente;
-    private double custoDiario;
+    private final double custoDiario;
 
 //////////////////////  CONSTRUTOR   /////////////////////
 

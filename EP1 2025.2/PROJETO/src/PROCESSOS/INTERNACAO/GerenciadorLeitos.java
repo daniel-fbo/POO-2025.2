@@ -13,14 +13,15 @@ public class GerenciadorLeitos {
 
 //////////////////////  CONSTRUTOR   /////////////////////
 
-    public GerenciadorLeitos(short qtdQuartos, short qtdSalasAmarelas, short qtdSalasVermelhas, double custoDiario) {
+    public GerenciadorLeitos(short qtdQuartos, short qtdSalasAmarelas, short qtdSalasVermelhas,
+                             double custoQuarto, double custoSalaAmarela, double custoSalaVermelha) {
         this.quartos = new ArrayList<>();
         this.salasAmarelas = new ArrayList<>();
         this.salasVermelhas = new ArrayList<>();
 
-        inicializarLeitos(qtdQuartos, TipoLeito.QUARTO, custoDiario, quartos);
-        inicializarLeitos(qtdSalasAmarelas, TipoLeito.SALA_AMARELA, custoDiario, salasAmarelas);
-        inicializarLeitos(qtdSalasVermelhas, TipoLeito.SALA_VERMELHA, custoDiario, salasVermelhas);
+        inicializarLeitos(qtdQuartos, TipoLeito.QUARTO, custoQuarto, quartos);
+        inicializarLeitos(qtdSalasAmarelas, TipoLeito.SALA_AMARELA,  custoSalaAmarela, salasAmarelas);
+        inicializarLeitos(qtdSalasVermelhas, TipoLeito.SALA_VERMELHA, custoSalaVermelha, salasVermelhas);
     }
 
 /////////////////  GETTERS & SETTERS   //////////////////

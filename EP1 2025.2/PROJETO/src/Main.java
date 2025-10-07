@@ -16,7 +16,7 @@ public class Main{
         REP_CONSULTA rConsulta = new REP_CONSULTA_RAM();
         REP_INTERNACAO rInternacao = new REP_INTERNACAO_RAM();
         REP_ESPECIALIDADE rEspecialidade = new REP_ESPECIALIDADE_RAM();
-        GerenciadorLeitos gLeitos = new GerenciadorLeitos(10,5,3);
+        GerenciadorLeitos gLeitos = new GerenciadorLeitos((short) 10, (short) 5, (short) 3, 100, 500, 1000 );
 
         Scanner input = new Scanner(System.in);
         SistemaCadastro tecla1 = new SistemaCadastro(input, rPaciente, rMedico, rPlano, rEspecialidade);
