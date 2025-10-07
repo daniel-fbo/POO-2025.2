@@ -22,13 +22,15 @@ public record RelatorioConsulta(
                         "Paciente: %s%n" +
                         "CPF do Paciente: %s%n" +
                         "Dr(a): %s%n" +
-                        "Campo da consulta: " + this.especialidade +
-                        "Diagnóstico: " + this.diagnostico +
+                        "Campo da consulta: %s%n" +
+                        diagnostico.toString() +
                         "CUSTO TOTAL A PAGAR: R$ %.2f",
                 idConsulta,
                 paciente.nome,
                 paciente.cpf,
                 medico.nome,
+                especialidade,
+                diagnostico,
                 custoFinal);
         return string;
     }

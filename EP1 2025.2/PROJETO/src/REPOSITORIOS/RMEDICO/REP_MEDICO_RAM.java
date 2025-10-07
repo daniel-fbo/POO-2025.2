@@ -1,5 +1,5 @@
 package REPOSITORIOS.RMEDICO;
-import ENTIDADES.MEDICO.Medico;
+import ENTIDADES.MEDICO.*;
 import java.util.*;
 
 
@@ -17,6 +17,14 @@ public class REP_MEDICO_RAM implements REP_MEDICO {
     public Optional<Medico> buscarCrm(String crm){
         return listaMedicos.stream()
                 .filter(p->p.crm.equals(crm))
+                .findFirst();
+
+    }
+
+    @Override
+    public Optional<Medico> buscarEspecialidade(Especialidades especialidade){
+        return listaMedicos.stream()
+                .filter(p->p.especialidade.equals(especialidade))
                 .findFirst();
 
     }

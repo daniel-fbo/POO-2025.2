@@ -18,6 +18,7 @@ public class Internacao{
     public LocalDateTime horarioAlta;
     public RelatorioInternacao relatorioInternacao;
     public Status status;
+    public double iCustoFinal;
 
 //////////////////////  CONSTRUTOR   /////////////////////
     public Internacao(Paciente paciente, Leito leito) throws LeitoOcupado {
@@ -33,6 +34,7 @@ public class Internacao{
         this.horarioAlta = null;
         this.relatorioInternacao = null;
         this.status = Status.EM_PROCESSO;
+        this.iCustoFinal = 0;
     }
 
 /////////////////  GETTERS & SETTERS   //////////////////

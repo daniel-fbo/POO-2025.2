@@ -49,6 +49,10 @@ public class Consulta {
         return custoFinal;
     }
 
+    public void setDiagnostico(Diagnostico diagnostico){
+        this.diagnostico = diagnostico;
+    }
+
     public void setCustoFinal(double custoFinal) {
         this.custoFinal = custoFinal;
     }

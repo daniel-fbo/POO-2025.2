@@ -26,6 +26,10 @@ public class Medico {
         return nome;
     }
 
+    public Agenda getAgenda(){
+        return agenda;
+    }
+
     public String getCrm(){
         return crm;
     }

@@ -21,7 +21,7 @@ public class Main{
         Scanner input = new Scanner(System.in);
         SistemaCadastro tecla1 = new SistemaCadastro(input, rPaciente, rMedico, rPlano, rEspecialidade);
         SistemaInternacao tecla2 = new SistemaInternacao(input, rPaciente,rInternacao, gLeitos);
-        SistemaConsultas tecla3 = new SistemaConsultas(input, rConsulta);
+        SistemaConsultas tecla3 = new SistemaConsultas(input, rConsulta, rEspecialidade, rMedico, rPaciente);
         RegistrosGerais tecla4 = new RegistrosGerais(input, rPaciente, rMedico, rPlano, rConsulta, rInternacao, rEspecialidade);
 
         String tecla;

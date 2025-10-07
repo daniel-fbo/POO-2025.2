@@ -12,6 +12,19 @@ public class REP_PACIENTE_RAM implements REP_PACIENTE {
     }
 
     @Override
+    public Optional<Paciente> buscarNome(String nome){
+        return listaPacientes.stream()
+                .filter(p -> p.nome.equals(nome))
+                .findFirst();
+    }
+
+    @Override
+    public boolean isntCadastrado(String nome){
+        return listaPacientes.stream()
+                .noneMatch(n -> n.nome.equals(nome));
+    }
+
+    @Override
     public Optional<Paciente> buscarCpf(String cpf){
         return listaPacientes.stream()
                 .filter(p -> p.cpf.equals(cpf))
