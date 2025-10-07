@@ -8,20 +8,20 @@ import java.time.LocalDateTime;
 public class Consulta {
     private static int idCUniversal = 1 ;
     private final int idConsulta;
-    private Paciente paciente;
-    private Medico medico;
-    private LocalDateTime horarioConsulta;
+    private final Paciente paciente;
+    private final Medico medico;
+    private final LocalDateTime horarioConsulta;
     private RelatorioConsulta relatorioConsulta;
     private Status status;
     private Especialidades especialidade;
     private double custoFinal;
 
 
-    public Consulta(Paciente paciente, Medico medico, Especialidades especialidade, LocalDateTime horarioConsulta, double custoFinal) {
+    public Consulta(Paciente paciente, Medico medico, LocalDateTime horarioConsulta, double custoFinal) {
         this.idConsulta = idCUniversal++;
         this.paciente = paciente;
         this.medico = medico;
-        this.especialidade = especialidade;
+        this.especialidade = medico.getEspecialidade();
         this.horarioConsulta = horarioConsulta;
         this.custoFinal = custoFinal;
         this.status = Status.MARCADO;

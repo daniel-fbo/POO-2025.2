@@ -14,8 +14,14 @@ public class Medico {
         this.agenda = null;
     }
 
+    public String getNome(){
+        return nome;
+    }
     public String getCrm(){
         return crm;
+    }
+    public Especialidades getEspecialidade(){
+        return especialidade;
     }
 
 }
