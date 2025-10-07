@@ -1,5 +1,4 @@
 package ENTIDADES.MEDICO;
-
 import PROCESSOS.CONSULTAS.Consulta;
 import PROCESSOS.CONSULTAS.HorarioIndisponivel;
 import java.time.LocalDateTime;
@@ -8,7 +7,6 @@ import java.util.Collections;
 import java.util.List;
 
 public class Agenda {
-
     private final List<Consulta> listaConsultas;
 
     public Agenda() {

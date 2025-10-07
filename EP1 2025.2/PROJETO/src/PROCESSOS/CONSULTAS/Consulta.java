@@ -2,7 +2,7 @@ package PROCESSOS.CONSULTAS;
 import ENTIDADES.PACIENTE.*;
 import ENTIDADES.MEDICO.*;
 import ENTIDADES.MEDICO.Especialidades;
-import SISTEMAS.Status;
+
 import java.time.LocalDateTime;
 
 

@@ -1,6 +1,7 @@
 package PROCESSOS.INTERNACAO;
 import ENTIDADES.PACIENTE.*;
 
+
 public class Leito {
     private final short idLeito;
     private boolean ocupado;
@@ -19,22 +20,28 @@ public class Leito {
     public short getIdLeito(){
         return idLeito;
     }
+
     public TipoLeito getTipoLeito() {
         return tipoLeito;
     }
+
     public boolean isOcupado(){
         return ocupado;
     }
+
     public Paciente getPaciente() {
         return paciente;
     }
-    public void ocupar(Paciente paciente) {
+
+    public void ocupar(Paciente paciente) throws LeitoOcupado {
         if (this.ocupado) {
-            throw new LeitoOcupado("Leito " + idLeito + " já está ocupado!");
+            throw new LeitoOcupado(this, this.paciente);
         }
         this.paciente = paciente;
         this.ocupado = true;
     }
+
+
     public void liberar() {
         this.paciente = null;
         this.ocupado = false;

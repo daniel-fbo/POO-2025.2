@@ -1,49 +1,81 @@
 package PROCESSOS.INTERNACAO;
-
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class GerenciadorLeitos {
-    private List<Leito> quartos;
-    private List<Leito> salasA;
-    private List<Leito> salasV;
+    private final List<Leito> quartos;
+    private final List<Leito> salasAmarelas;
+    private final List<Leito> salasVermelhas;
 
-    public GerenciadorLeitos(int qtdQuartos, int qtdSalasA, int qtdSalasV) {
-        quartos = new ArrayList<>();
-        salasA = new ArrayList<>();
-        salasV = new ArrayList<>();
+    public GerenciadorLeitos(short qtdQuartos, short qtdSalasAmarelas, short qtdSalasVermelhas, double custoDiario) {
+        this.quartos = new ArrayList<>();
+        this.salasAmarelas = new ArrayList<>();
+        this.salasVermelhas = new ArrayList<>();
 
-        inicializarLeitos(qtdQuartos, TipoLeito.QUARTO, quartos);
-        inicializarLeitos(qtdSalasA, TipoLeito.SALA_AMARELA, salasA);
-        inicializarLeitos(qtdSalasV, TipoLeito.SALA_VERMELHA, salasV);
+        inicializarLeitos(qtdQuartos, TipoLeito.QUARTO, custoDiario, quartos);
+        inicializarLeitos(qtdSalasAmarelas, TipoLeito.SALA_AMARELA, custoDiario, salasAmarelas);
+        inicializarLeitos(qtdSalasVermelhas, TipoLeito.SALA_VERMELHA, custoDiario, salasVermelhas);
     }
 
-    private void inicializarLeitos(int qtd, TipoLeito tipo, List<Leito> lista) {
-        for (int i = 1; i <= qtd; i++) {
-            lista.add(new Leito((short) i, tipo, custoDiario));
+    private void inicializarLeitos(short quantidade, TipoLeito tipo, double custoDiario, List<Leito> destino) {
+        for (short i = 1; i <= quantidade; i++) {
+            destino.add(new Leito(i, tipo, custoDiario));
         }
     }
 
-    public Leito obterLeitoDisponivel(TipoLeito tipo) {
-        List<Leito> lista = getListaPorTipo(tipo);
-        for (Leito l : lista) {
-            if (!l.isOcupado()) return l;
-        }
-        return null;
+    private List<Leito> getListaPeloTipo(TipoLeito tipo) {
+        return switch (tipo) {
+            case QUARTO -> quartos;
+            case SALA_AMARELA -> salasAmarelas;
+            case SALA_VERMELHA -> salasVermelhas;
+        };
+    }
+
+    public Optional<Leito> obterLeitoDisponivel(TipoLeito tipo) {
+        return getListaPeloTipo(tipo)
+                .stream()
+                .filter(leito -> !leito.isOcupado())
+                .findFirst();
     }
 
     public void listarLeitosPorTipo(TipoLeito tipo) {
-        List<Leito> lista = getListaPorTipo(tipo);
-        for (Leito l : lista) {
-            System.out.println(l);
+        List<Leito> listaLeitosTipo = getListaPeloTipo(tipo);
+        if (listaLeitosTipo.isEmpty()) {
+            System.out.println("Não há " + tipo);
+        } else {
+            System.out.println("Quantidade de " + tipo + ":");
+            listaLeitosTipo.forEach(System.out::println);
         }
     }
 
-    private List<Leito> getListaPorTipo(TipoLeito tipo) {
-        return switch (tipo) {
-            case AZUL_VERDE -> leitosAzulVerde;
-            case AMARELO -> leitosAmarelo;
-            case VERMELHO -> salasV;
-        };
+
+    public long contarOcupados(TipoLeito tipo) {
+        return getListaPeloTipo(tipo).stream()
+                .filter(Leito::isOcupado)
+                .count();
+    }
+
+    private long contarLivres(TipoLeito tipo) {
+        return getListaPeloTipo(tipo).stream()
+                .filter(leito -> !leito.isOcupado())
+                .count();
+    }
+
+    @Override
+    public String toString() {
+        String string =
+                "Total Leitos:" + "\n" +
+                "  >>Quartos - " + quartos.size() + "\n" +
+                "    Ocupados: " +contarOcupados(TipoLeito.QUARTO) +
+                " Livres:" + contarLivres(TipoLeito.QUARTO) + "\n" +
+                "  >>Salas Amarelas - " + salasAmarelas.size() + "\n" +
+                "    Ocupados: " + contarOcupados(TipoLeito.SALA_VERMELHA) +
+                " Livres:" +contarLivres(TipoLeito.SALA_AMARELA) + "\n" +
+                "  >>Salas Vermelhas - " + salasVermelhas.size() + "\n" +
+                "    Ocupados: " +contarOcupados(TipoLeito.SALA_VERMELHA) +
+                " Livres:" + contarLivres(TipoLeito.SALA_VERMELHA);
+
+        return string;
     }
 }

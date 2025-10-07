@@ -1,4 +1,4 @@
-package SISTEMAS;
+package PROCESSOS.CONSULTAS;
 
 public enum Status{
     MARCADO,
