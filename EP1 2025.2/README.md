@@ -56,7 +56,7 @@ Desenvolvimento de um sistema de gerenciamento hospitalar utilizando os conceito
 
 ## Observações (Extras ou Dificuldades)
 
-- As diculdades que tive durante o projeto foram: a Injeção de Depêndencia, o uso de Stacks e Views, e o entendimento acerca de classes especiais como enuns, interfaces e records. 
+- As diculdades que tive durante o projeto foram: a Injeção de Depêndencia, o uso de Stacks e Views, e o entendimento acerca de classes especiais como enuns, interfaces e records. A parte mais cansativa foi o tratamento de exceção para todos os dados que o usuário possa enviar (em especial do tipo InputMismatchException).
 ---
 
 
