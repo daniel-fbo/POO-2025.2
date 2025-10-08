@@ -44,10 +44,10 @@ Desenvolvimento de um sistema de gerenciamento hospitalar utilizando os conceito
 1. Menu Principal:  <img width="321" height="192" alt="image" src="https://github.com/user-attachments/assets/f01f9ad8-5208-43cd-a827-4ecfca3eb787" />
 
    ![Inserir Print 1](./imagens/Menu_Principal)
-   ![Inserir Print 2]
-   ![Inserir Print 3]
-   ![Inserir Print 4]
-   ![Inserir Print 5]
+   ![Inserir Print 2](./imagens/Menu_Sistema_de_Cadastro)
+   ![Inserir Print 3](./imagens/Menu_Sistema_de_Internação)
+   ![Inserir Print 4](./imagens/Menu_Sistema_de_Consultas)
+   ![Inserir Print 5](./imagens/Menu_Sistema_de_Registros)
 
 3. Cadastro de Médico:  
    ![Inserir Print 2](caminho/do/print2.png)
