@@ -41,13 +41,14 @@ Desenvolvimento de um sistema de gerenciamento hospitalar utilizando os conceito
 
 ## Prints da Execução
 
-1. Menu Principal:  
-   ![Inserir Print 1](caminho/do/print1.png)
+1. Menu Principal:  <img width="321" height="192" alt="image" src="https://github.com/user-attachments/assets/f01f9ad8-5208-43cd-a827-4ecfca3eb787" />
 
-2. Cadastro de Médico:  
+   ![Inserir Print 1]
+
+3. Cadastro de Médico:  
    ![Inserir Print 2](caminho/do/print2.png)
 
-3. Relatório de ?:  
+4. Relatório de ?:  
    ![Inserir Print 3](caminho/do/print3.png)
 
 ---
@@ -56,7 +57,8 @@ Desenvolvimento de um sistema de gerenciamento hospitalar utilizando os conceito
 
 ## Observações (Extras ou Dificuldades)
 
-- As diculdades que tive durante o projeto foram: a Injeção de Depêndencia, o uso de Stacks e Views, e o entendimento acerca de classes especiais como enuns, interfaces e records. A parte mais cansativa foi o tratamento de exceção para todos os dados que o usuário possa enviar (em especial do tipo InputMismatchException).
+- As diculdades que tive durante o projeto foram: a Injeção de Depêndencia, o uso de Stacks e Views, e o entendimento acerca de classes especiais como enuns, interfaces e records. A parte mais cansativa foi o tratamento de exceção para todos os dados que o usuário possa enviar (em especial do tipo InputMismatchException). O problema com buffer cheio e a necessiade de múltiplos métodos constutores para a mesma classe tambémm foram dificultosos.
+- Coloquei um sistema de triagem automático no cadastro dos pacientes. Também realizei um extenso controle e verificação sobre os leitos disponíveis para a internação. Usei de classes Record para relatórios de consultas e internações. Também criei algumas Exceptions personalizadas e Enums para representar os tipos de leito (baseado no grau de urgência da internação) e os estados em que um paciente pode adquirir na triagem.
 ---
 
 
