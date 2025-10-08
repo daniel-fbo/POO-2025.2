@@ -42,17 +42,20 @@ Desenvolvimento de um sistema de gerenciamento hospitalar utilizando os conceito
 ## Prints da Execução
 
 1. Menu Principal:  <img width="321" height="192" alt="image" src="https://github.com/user-attachments/assets/f01f9ad8-5208-43cd-a827-4ecfca3eb787" />
+   ![Menu_Principal](./imagens/Menu_Principal)
+2. Menu Principal:  <img width="321" height="192" alt="image" src="https://github.com/user-attachments/assets/f01f9ad8-5208-43cd-a827-4ecfca3eb787" />   
+   ![Menu_Sistema_de_Cadastro](./imagens/Menu_Sistema_de_Cadastro)
+3. Menu Principal:  <img width="321" height="192" alt="image" src="https://github.com/user-attachments/assets/f01f9ad8-5208-43cd-a827-4ecfca3eb787" />   
+   ![Menu_Sistema_de_Internação](./imagens/Menu_Sistema_de_Internação)
+4. Menu Principal:  <img width="321" height="192" alt="image" src="https://github.com/user-attachments/assets/f01f9ad8-5208-43cd-a827-4ecfca3eb787" />   
+   ![Menu_Sistema_de_Consultas](./imagens/Menu_Sistema_de_Consultas)
+5. Menu Principal:  <img width="321" height="192" alt="image" src="https://github.com/user-attachments/assets/f01f9ad8-5208-43cd-a827-4ecfca3eb787" />   
+   ![Menu_Sistema_de_Registros](./imagens/Menu_Sistema_de_Registros)
 
-   ![Inserir Print 1](./imagens/Menu_Principal)
-   ![Inserir Print 2](./imagens/Menu_Sistema_de_Cadastro)
-   ![Inserir Print 3](./imagens/Menu_Sistema_de_Internação)
-   ![Inserir Print 4](./imagens/Menu_Sistema_de_Consultas)
-   ![Inserir Print 5](./imagens/Menu_Sistema_de_Registros)
-
-3. Cadastro de Médico:  
+4. Cadastro de Médico:  
    ![Inserir Print 2](caminho/do/print2.png)
 
-4. Relatório de ?:  
+5. Relatório de ?:  
    ![Inserir Print 3](caminho/do/print3.png)
 
 ---
