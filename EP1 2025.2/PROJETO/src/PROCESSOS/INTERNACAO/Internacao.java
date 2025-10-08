@@ -60,11 +60,12 @@ public class Internacao{
     }
 
 
-    if (paciente.getPlano().equals(PlanoPremium) && dias > 10) {
+    /*if (paciente.getPlano().equals(PlanoPremium) && dias > 10) {
         custoFinal = 0;
-    }
+    }*/
+
     return custoFinal;
-}
+    }
 
     public boolean isAtiva() {
         return horarioAlta == null;

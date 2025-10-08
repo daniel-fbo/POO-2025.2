@@ -10,6 +10,7 @@ import REPOSITORIOS.RPLANODESAUDE.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -64,11 +65,13 @@ public class SistemaCadastro implements Menu {
         String cpf = input.nextLine();
         System.out.print("Idade: ");
         short idade = input.nextShort();
+        input.nextLine(); // limpa o Enter que ficou do menu anterior
+
 
         if(idade<=12){
             System.out.print("Nome do responsável: ");
             nomeResponsavel = input.nextLine();
-            System.out.print("CPFdo responsável: ");
+            System.out.print("CPF do responsável: ");
             cpfResponsavel = input.nextLine();
         }
         if(idade>=60){
@@ -99,29 +102,36 @@ public class SistemaCadastro implements Menu {
             try{
                 System.out.println("Digite a opção correspondente:");
                 short opcao = input.nextShort();
+                input.nextLine();
                 if (opcao < 1 || opcao > listaEstados.length){
                     throw new IllegalArgumentException("Opção inválida.");
                 }
                 estado = listaEstados[opcao - 1];
             } catch (Exception e){
                 System.out.println("Digite um número entre 1 e "+ listaEstados.length + ".");
-                input.nextLine(); //LimpaBuffer
+                input.nextLine();
             }
         }
 
         short temPlano = 0;
         PlanoDeSaude planoSelecionado = null;
-        System.out.println("O paciente possui plano de saúde?\n 1- Sim.\n 2-Não.");
-        try{
-            System.out.println("Digite a opção correspondente:");
-            short opcao = input.nextShort();
-            if (opcao < 1 || opcao > 2){
-                throw new IllegalArgumentException("Opção inválida.");
+        System.out.println("O paciente possui plano de saúde?\n 1- Sim.\n 2- Não.");
+        while (true) {
+            try {
+                System.out.print("Digite a opção correspondente: ");
+                short opcao = input.nextShort();
+                input.nextLine();
+
+                if (opcao < 1 || opcao > 2) {
+                    System.out.println("Opção inválida. Digite 1 ou 2.");
+                } else {
+                    temPlano = opcao;
+                    break;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Entrada inválida. Digite apenas números (1 ou 2).");
+                input.nextLine();
             }
-            temPlano = opcao;
-        } catch (Exception e){
-            System.out.println("Digite um número entre 1 e 2.");
-            input.nextLine(); //LimpaBuffer
         }
 
         if(temPlano==1) {
