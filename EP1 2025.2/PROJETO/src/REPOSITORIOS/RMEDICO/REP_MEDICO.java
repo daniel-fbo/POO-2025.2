@@ -3,6 +3,7 @@ import ENTIDADES.MEDICO.*;
 import java.util.*;
 
 public interface REP_MEDICO {
+    void imprimirMedicos();
     void salvarMedico(Medico medico);
     Optional<Medico> buscarCrm(String crm);
     Optional<Medico> buscarEspecialidade(Especialidades especialidade);

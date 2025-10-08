@@ -1,9 +1,12 @@
-package REPOSITORIOS.RPACIENTE;
+/*package REPOSITORIOS.RPACIENTE;
 import ENTIDADES.PACIENTE.Paciente;
 import java.util.*;
 
 public class REP_PACIENTE_RAM implements REP_PACIENTE {
     private static final List<Paciente> listaPacientes = new ArrayList<>();
+
+    @Override
+    public void imprimirPacientes();
 
     @Override
     public void salvarPaciente(Paciente paciente){
@@ -36,4 +39,4 @@ public class REP_PACIENTE_RAM implements REP_PACIENTE {
         return Collections.unmodifiableList(listaPacientes);
     }
 
-}
+}*/

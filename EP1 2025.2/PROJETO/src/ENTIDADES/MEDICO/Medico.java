@@ -1,5 +1,7 @@
 package ENTIDADES.MEDICO;
 
+import ENTIDADES.PACIENTE.Historico;
+
 public class Medico {
 
 /////////////////////   ATRIBUTOS    /////////////////////
@@ -17,7 +19,7 @@ public class Medico {
         this.crm = crm;
         this.custoConsulta = custoConsulta;
         this.especialidade = especialidade;
-        this.agenda = null;
+        this.agenda = new Agenda();
     }
     public Medico(String nome){
         this.nome = nome;
@@ -29,7 +31,8 @@ public class Medico {
         return nome;
     }
 
-    public Agenda getAgenda(){
+    public Agenda getAgenda() {
+        if (agenda == null) agenda = new Agenda();
         return agenda;
     }
 

@@ -42,7 +42,7 @@ public class Paciente {
         return nome;
     }
     public Historico getHistorico() {
-        if (historico == null) historico = new Historico(); // segurança extra
+        if (historico == null) historico = new Historico();
         return historico;
     }
 

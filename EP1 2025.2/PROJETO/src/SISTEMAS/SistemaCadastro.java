@@ -212,18 +212,19 @@ public class SistemaCadastro implements Menu {
             try{
                 System.out.println("Digite a opção correspondente:");
                 short opcao = input.nextShort();
+                input.nextLine();
                 if (opcao < 1 || opcao > listaEspecialidades.size()){
                     throw new IllegalArgumentException("Opção inválida.");
                 }
                 especialidade = listaEspecialidades.get(opcao-1);
+                Medico medico = new Medico(nome, crm, custoConsulta, especialidade);
+                rMedico.salvarMedico(medico);
             } catch (Exception e){
                 System.out.println("Digite um número entre 1 e "+ listaEspecialidades.size() + ".");
                 input.nextLine(); //LimpaBuffer
             }
         }
-        Medico medico = new Medico(nome, crm, custoConsulta, especialidade);
 
-        rMedico.salvarMedico(medico);
 
     }
 

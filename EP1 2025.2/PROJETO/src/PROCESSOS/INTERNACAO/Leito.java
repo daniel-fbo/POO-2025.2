@@ -8,7 +8,7 @@ public class Leito {
     private boolean ocupado;
     private final TipoLeito tipoLeito;
     private Paciente paciente;
-    private final double custoDiario;
+    private double custoDiario;
 
 //////////////////////  CONSTRUTOR   /////////////////////
 
@@ -19,7 +19,10 @@ public class Leito {
         this.paciente = null;
         this.custoDiario = custoDiario;
     }
-
+    public Leito(short codigoLeito, TipoLeito tipoLeito) {
+        this.idLeito = codigoLeito;
+        this.tipoLeito = tipoLeito;
+    }
 /////////////////  GETTERS & SETTERS   //////////////////
 
     public short getIdLeito(){

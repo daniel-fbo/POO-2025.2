@@ -32,6 +32,19 @@ public class REP_PLANO_CSV implements REP_PLANO {
     }
 
 
+    public void imprimirPlanos() {
+        if (listaPlanos.isEmpty()) {
+            System.out.println("Nenhum plano de saúde cadastrado.");
+            return;
+        }
+
+        for (PlanoDeSaude p : listaPlanos) {
+            System.out.println("ID do Plano: " + p.getIdPlano());
+            System.out.println("Nome do Plano: " + p.getNome());
+            System.out.println("--------------------------------------------------\n");
+        }
+    }
+
     private void carregarDoArquivo() {
         listaPlanos.clear();
         File file = new File(ARQUIVO);

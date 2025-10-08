@@ -3,6 +3,7 @@ import ENTIDADES.PACIENTE.Paciente;
 import java.util.*;
 
 public interface REP_PACIENTE {
+    void imprimirPacientes();
     void salvarPaciente(Paciente paciente);
     boolean isntCadastrado(String nome);
     Optional<Paciente> buscarCpf(String cpf);

@@ -47,13 +47,11 @@ public class RegistrosGerais implements Menu {
 
             try{
                 switch (tecla) {
-                    case "1" -> rPaciente.listarPacientes();
-                    case "2" -> rMedico.listarMedicos();
-                    case "3" -> rPlano.listarPlanos();
-                    case "4" -> rConsulta.listarConsultas();
-                    case "5" -> rInternacao.listarInternacoes();
-                    case "6" -> buscarHistorico();
-                    case "7" -> System.out.println("SISTEMA FECHADO");
+                    case "1" -> rPaciente.imprimirPacientes();
+                    case "2" -> rMedico.imprimirMedicos();
+                    case "3" -> rPlano.imprimirPlanos();
+                    case "4" -> buscarHistorico();
+                    case "5" -> System.out.println("SISTEMA FECHADO");
                     default -> System.out.println("Opção inválida.");
                 }
             } catch (Exception e){

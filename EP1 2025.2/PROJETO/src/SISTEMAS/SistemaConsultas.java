@@ -150,7 +150,7 @@ public class SistemaConsultas implements Menu {
             Consulta novaConsulta = new Consulta(paciente, medico, horarioConsulta, custoFinal);
 
             medico.getAgenda().adicionarConsulta(novaConsulta);
-
+            rConsulta.salvar(novaConsulta);
             System.out.println("\nConsulta agendada com sucesso!");
             System.out.println("Paciente: " + paciente.getNome());
             System.out.println("Médico: " + medico.getNome());

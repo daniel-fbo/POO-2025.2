@@ -1,4 +1,4 @@
-package REPOSITORIOS.RMEDICO;
+/*package REPOSITORIOS.RMEDICO;
 import ENTIDADES.MEDICO.*;
 import java.util.*;
 
@@ -39,4 +39,4 @@ public class REP_MEDICO_RAM implements REP_MEDICO {
 
     }
 
-}
+}*/
