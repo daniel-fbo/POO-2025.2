@@ -8,4 +8,6 @@ public interface REP_PACIENTE {
     Optional<Paciente> buscarCpf(String cpf);
     Optional<Paciente> buscarNome(String cpf);
     List<Paciente> listarPacientes();
+
+
 }

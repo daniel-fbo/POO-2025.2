@@ -14,11 +14,15 @@ public class REP_MEDICO_RAM implements REP_MEDICO {
     }
 
     @Override
-    public Optional<Medico> buscarCrm(String crm){
-        return listaMedicos.stream()
-                .filter(p->p.crm.equals(crm))
-                .findFirst();
-
+    public Optional<Medico> buscarCrm(String crmString) {
+        try {
+            short crmNumero = Short.parseShort(crmString);
+            return listaMedicos.stream()
+                    .filter(medico -> String.valueOf(medico.getCrm()).equals(String.valueOf(crmNumero)))
+                    .findFirst();
+        } catch (NumberFormatException e) {
+            return Optional.empty();
+        }
     }
 
     @Override
@@ -33,6 +37,6 @@ public class REP_MEDICO_RAM implements REP_MEDICO {
     public List<Medico> listarMedicos(){
         return Collections.unmodifiableList(listaMedicos);
 
-    };
+    }
 
 }

@@ -53,6 +53,10 @@ public class Internacao{
     }
     double custoFinal = custoDiario * dias;
 
+    if(paciente.plano!=null){
+        custoFinal *= paciente.plano.descontoInternacao;
+    }
+
     if (paciente instanceof Paciente_Idoso) {
         custoFinal *= 1.15;
     } else if (paciente instanceof Paciente_Crianca) {

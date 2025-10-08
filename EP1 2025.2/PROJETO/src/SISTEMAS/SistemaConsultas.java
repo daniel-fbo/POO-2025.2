@@ -35,6 +35,7 @@ public class SistemaConsultas implements Menu {
             System.out.println("\n==== SISTEMA DE CONSULTAS ====");
             System.out.println("1 - Agendar consulta.");
             System.out.println("2 - Gerar relatório de consulta.");
+            System.out.println("3 - Voltar ao menu principal.");
             System.out.print("Digite a opção desejada: ");
             tecla = input.nextLine();
             try {
@@ -123,6 +124,8 @@ public class SistemaConsultas implements Menu {
         if (paciente.plano.getEspecialidade() == especialidade){
             custoFinal *= 0.5;
         }
+
+        custoFinal *= paciente.plano.descontoConsulta;
 
         //Horario.Data
 

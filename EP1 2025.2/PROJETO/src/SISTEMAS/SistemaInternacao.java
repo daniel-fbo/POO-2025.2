@@ -26,8 +26,9 @@ public class SistemaInternacao implements Menu {
         do {
             System.out.println("\n==== SISTEMA DE INTERNAÇÃO ====");
             System.out.println("1 - Internar paciente.");
-            System.out.println("2- Liberar paciente.");
+            System.out.println("2 - Liberar paciente.");
             System.out.println("3 - Verificar situação dos leitos.");
+            System.out.println("4 - Voltar ao menu principal.");
             System.out.print("Digite a opção desejada: ");
             tecla = input.nextLine();
             try{
@@ -79,7 +80,6 @@ public class SistemaInternacao implements Menu {
         try {
             Internacao novaInternacao = new Internacao(paciente, leito);
             rInternacao.salvar(novaInternacao);
-            System.out.println(novaInternacao);
 
         } catch (LeitoOcupado e) {
             System.out.println(e.getMessage());

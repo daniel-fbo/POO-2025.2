@@ -1,4 +1,0 @@
-/*package REPOSITORIOS.RINTERNACAO;
-
-public class REP_INTERNACAO_CSV implements REP_INTERNACAO {
-}*/

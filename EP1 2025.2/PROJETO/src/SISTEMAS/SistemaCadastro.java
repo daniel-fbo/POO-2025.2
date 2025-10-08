@@ -37,7 +37,7 @@ public class SistemaCadastro implements Menu {
             System.out.println("\n==== SISTEMA DE CADASTRO ====");
             System.out.println("1 - Cadastro de paciente.");
             System.out.println("2 - Cadastro de médico.");
-            System.out.println("2 - Cadastro de especialidade médica.");
+            System.out.println("3 - Cadastro de especialidade médica.");
             System.out.println("4 - Cadastro de plano de saúde.");
             System.out.println("5 - Voltar ao menu principal: ");
             tecla = input.nextLine();
@@ -63,9 +63,18 @@ public class SistemaCadastro implements Menu {
         String nome = input.nextLine();
         System.out.print("CPF: ");
         String cpf = input.nextLine();
-        System.out.print("Idade: ");
-        short idade = input.nextShort();
-        input.nextLine(); // limpa o Enter que ficou do menu anterior
+        short idade;
+        while (true) {
+            System.out.print("Idade: ");
+            try {
+                idade = input.nextShort();
+                input.nextLine();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Erro: Digite apenas números.");
+                input.nextLine();
+            }
+        }
 
 
         if(idade<=12){
@@ -77,7 +86,7 @@ public class SistemaCadastro implements Menu {
         if(idade>=60){
             while (dataUltimaConsulta == null) {
                 try {
-                    System.out.print("Digite a data da última consulta do Sr.(a): (formato: dd/MM/yyyy");
+                    System.out.print("Digite a data da última consulta do Sr.(a): (formato: dd/MM/yyyy)");
                     String data = input.nextLine();
                     DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                     dataUltimaConsulta = LocalDate.parse(data, formatador);
@@ -143,21 +152,22 @@ public class SistemaCadastro implements Menu {
                 for (int i = 0; i < planosDisponiveis.size(); i++) {
                     System.out.println(i + 1 + "- " + planosDisponiveis.get(i).getNome() + "\n");
                 }
-            }
-            while (planoSelecionado == null) {
-                try {
-                    short opcao;
-                    System.out.println("Digite a opção correspondente: ");
-                    opcao = input.nextShort();
-                    if (opcao < 1 || opcao > planosDisponiveis.size()) {
-                        throw new IllegalArgumentException("Opção inválida.");
+                while (planoSelecionado == null) {
+                    try {
+                        short opcao;
+                        System.out.println("Digite a opção correspondente: ");
+                        opcao = input.nextShort();
+                        if (opcao < 1 || opcao > planosDisponiveis.size()) {
+                            throw new IllegalArgumentException("Opção inválida.");
+                        }
+                        planoSelecionado = planosDisponiveis.get(opcao - 1);
+                    } catch (Exception e) {
+                        System.out.println("Digite uma opção entre 1 e " + planosDisponiveis.size());
+                        input.nextLine();
                     }
-                    planoSelecionado = planosDisponiveis.get(opcao - 1);
-                } catch (Exception e) {
-                    System.out.println("Digite uma opção entre 1 e " + planosDisponiveis.size());
-                    input.nextLine();
                 }
             }
+
         }
 
         if (idade <= 12) {
@@ -178,8 +188,18 @@ public class SistemaCadastro implements Menu {
         String nome = input.nextLine();
         System.out.print("CRM: ");
         String crm = input.nextLine();
-        System.out.print("Custo da consulta: ");
-        double custoConsulta = input.nextShort();
+        short custoConsulta;
+        while (true) {
+            System.out.print("Custo da consulta: ");
+            try {
+                custoConsulta = input.nextShort();
+                input.nextLine();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Erro: Digite apenas números.");
+                input.nextLine();
+            }
+        }
 
         List<Especialidades> listaEspecialidades = rEspecialidade.listarEspecialidades();
         Especialidades especialidade = null;

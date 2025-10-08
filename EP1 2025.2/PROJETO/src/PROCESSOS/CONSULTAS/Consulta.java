@@ -18,7 +18,7 @@ public class Consulta {
     public double custoFinal;
     public Diagnostico diagnostico;
 
-//////////////////////  CONSTRUTOR   /////////////////////
+//////////////////////  CONSTRUTORES   /////////////////////
 
     public Consulta(Paciente paciente, Medico medico, LocalDateTime horarioConsulta, double custoFinal) {
         this.idConsulta = idCUniversal++;
@@ -30,6 +30,16 @@ public class Consulta {
         this.status = Status.MARCADO;
         this.diagnostico = null;
     }
+    // CSV
+    public Consulta(int id, Paciente paciente, Medico medico, LocalDateTime horario, double custo, Status status) {
+        this.idConsulta = id; // Usa o ID lido do arquivo
+        this.paciente = paciente;
+        this.medico = medico;
+        this.especialidade = medico.getEspecialidade();
+        this.horarioConsulta = horario;
+        this.custoFinal = custo;
+        this.status = status; // Usa o Status lido do arquivo
+    }
 
  /////////////////  GETTERS & SETTERS   //////////////////
 
@@ -39,6 +49,11 @@ public class Consulta {
 
     public Medico getMedico() {
         return medico;
+    }
+
+    public int getIdConsulta() {return idConsulta;
+    }
+    public LocalDateTime getHorarioConsulta() {return horarioConsulta;
     }
 
     public LocalDateTime getData() {
@@ -71,6 +86,8 @@ public class Consulta {
                 " — Valor final: R$" + String.format("%.2f", custoFinal);
     }
 
+
+    public Status getStatus() { return status; }
 }
 
 

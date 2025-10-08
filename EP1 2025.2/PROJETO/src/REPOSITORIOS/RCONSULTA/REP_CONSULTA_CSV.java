@@ -1,5 +1,0 @@
-/*package REPOSITORIOS.RCONSULTA;
-
-public class REP_CONSULTA_CSV implements REP_CONSULTA{
-}
-*/
