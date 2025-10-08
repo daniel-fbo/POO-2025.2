@@ -1,12 +1,14 @@
 package SISTEMAS;
 import ENTIDADES.MEDICO.*;
 import ENTIDADES.PACIENTE.*;
+import ENTIDADES.PACIENTE.Paciente_Idoso;
 import PROCESSOS.CONSULTAS.*;
 import REPOSITORIOS.RCONSULTA.*;
 import REPOSITORIOS.RESPECIALIDADE.*;
 import REPOSITORIOS.RMEDICO.*;
 import REPOSITORIOS.RPACIENTE.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -50,6 +52,7 @@ public class SistemaConsultas implements Menu {
     }
 
     public void agendarConsulta(){
+        double custoFinal = 0;
         System.out.println("\n--- Agenda Consulta ---");
 
         //Paciente
@@ -108,7 +111,12 @@ public class SistemaConsultas implements Menu {
         Medico medico = possivelMedico.get();
         System.out.println("\nMédico encontrado!\nDr(a): " + medico.getNome());
 
-        //Horario/Data
+        //CustoFinal
+        if (paciente instanceof Paciente_Idoso  ){
+
+        }
+
+        //Horario.Data
 
         LocalDateTime horarioConsulta = null;
         while (horarioConsulta == null) {
@@ -156,6 +164,7 @@ public class SistemaConsultas implements Menu {
         System.out.print("Digite os exames requeridos: ");
         String exames = input.nextLine();
 
+
         Diagnostico diagnostico = new Diagnostico(descricao, medicamentos, exames);
 
         Optional<Consulta> oConsulta = rConsulta.buscarIdConsulta(idCOnsulta);
@@ -166,6 +175,13 @@ public class SistemaConsultas implements Menu {
         Consulta consulta = oConsulta.get();
         consulta.setDiagnostico(diagnostico);
         RelatorioConsulta relatorio = consulta.registrarConsulta();
+
+        if(consulta.paciente instanceof Paciente_Idoso){
+            Paciente_Idoso idoso = (Paciente_Idoso) consulta.getPaciente();
+            LocalDate hoje = LocalDate.now();
+            idoso.setDataUltimaConsulta(hoje);
+        }
+
         rConsulta.salvar(consulta);
         System.out.println("\n+++ ALTA REALIZADA COM SUCESSO +++");
         System.out.println(relatorio);

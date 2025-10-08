@@ -28,5 +28,6 @@ public class Paciente {
     public String getNome(){
         return nome;
     }
+    public Historico getHistorico(){return historico;}
 
 }

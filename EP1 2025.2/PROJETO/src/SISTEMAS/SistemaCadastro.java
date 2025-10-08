@@ -6,6 +6,10 @@ import REPOSITORIOS.RESPECIALIDADE.*;
 import REPOSITORIOS.RMEDICO.*;
 import REPOSITORIOS.RPACIENTE.*;
 import REPOSITORIOS.RPLANODESAUDE.*;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
 
@@ -48,6 +52,11 @@ public class SistemaCadastro implements Menu {
     }
 
     public void cadastrarPaciente () {
+        boolean precisaConsulta = false;
+        String nomeResponsavel="0";
+        String cpfResponsavel="0";
+        LocalDate dataUltimaConsulta = null;
+
         System.out.println("\n--- Cadastro de Paciente ---");
         System.out.print("Nome: ");
         String nome = input.nextLine();
@@ -55,6 +64,29 @@ public class SistemaCadastro implements Menu {
         String cpf = input.nextLine();
         System.out.print("Idade: ");
         short idade = input.nextShort();
+
+        if(idade<=12){
+            System.out.print("Nome do responsável: ");
+            nomeResponsavel = input.nextLine();
+            System.out.print("CPFdo responsável: ");
+            cpfResponsavel = input.nextLine();
+        }
+        if(idade>=60){
+            while (dataUltimaConsulta == null) {
+                try {
+                    System.out.print("Digite a data da última consulta do Sr.(a): (formato: dd/MM/yyyy");
+                    String data = input.nextLine();
+                    DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                    dataUltimaConsulta = LocalDate.parse(data, formatador);
+                    LocalDate hoje = LocalDate.now();
+                    precisaConsulta = dataUltimaConsulta.plusMonths(6).isBefore(hoje);
+
+                } catch (Exception e) {
+                    System.out.println("Formato inválido.");
+                }
+
+            }
+        }
 
         EstadoPaciente[] listaEstados = EstadoPaciente.values();
         System.out.println("Estado do paciente na triagem:");
@@ -119,10 +151,10 @@ public class SistemaCadastro implements Menu {
         }
 
         if (idade <= 12) {
-            Paciente paciente = new Paciente_Crianca(nome, cpf, idade, estado, planoSelecionado);
+            Paciente paciente = new Paciente_Crianca(nome, cpf, nomeResponsavel, cpfResponsavel, idade, estado, planoSelecionado);
             rPaciente.salvarPaciente(paciente);
         } else if (idade >= 60){
-            Paciente paciente = new Paciente_Idoso(nome, cpf, idade, estado, planoSelecionado);
+            Paciente paciente = new Paciente_Idoso(nome, cpf, idade, estado, planoSelecionado, dataUltimaConsulta, precisaConsulta);
             rPaciente.salvarPaciente(paciente);
         } else {
             Paciente paciente = new Paciente(nome, cpf, idade, estado, planoSelecionado);

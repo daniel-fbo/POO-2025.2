@@ -1,10 +1,14 @@
 package SISTEMAS;
+import ENTIDADES.PACIENTE.Paciente;
+import PROCESSOS.CONSULTAS.PacienteNaoCadastrado;
 import REPOSITORIOS.RCONSULTA.*;
 import REPOSITORIOS.RESPECIALIDADE.*;
 import REPOSITORIOS.RINTERNACAO.*;
 import REPOSITORIOS.RMEDICO.*;
 import REPOSITORIOS.RPACIENTE.*;
 import REPOSITORIOS.RPLANODESAUDE.*;
+
+import java.util.Optional;
 import java.util.Scanner;
 
 public class RegistrosGerais implements Menu {
@@ -37,7 +41,8 @@ public class RegistrosGerais implements Menu {
             System.out.println("3 - Registros de planos de saúde.");
             System.out.println("4 - Registros de consultas.");
             System.out.println("5 - Registros de internações.");
-            System.out.println("6 - Voltar ao menu principal: ");
+            System.out.println("6 - Buscar histórico de paciente.");
+            System.out.println("7 - Voltar ao menu principal: ");
             tecla = input.nextLine();
 
             try{
@@ -47,7 +52,8 @@ public class RegistrosGerais implements Menu {
                     case "3" -> rPlano.listarPlanos();
                     case "4" -> rConsulta.listarConsultas();
                     case "5" -> rInternacao.listarInternacoes();
-                    case "6" -> System.out.println("SISTEMA FECHADO");
+                    case "6" -> buscarHistorico();
+                    case "7" -> System.out.println("SISTEMA FECHADO");
                     default -> System.out.println("Opção inválida.");
                 }
             } catch (Exception e){
@@ -55,6 +61,29 @@ public class RegistrosGerais implements Menu {
             }
 
         } while (!tecla.equals("6"));
+    }
+
+    public void buscarHistorico(){
+        String nome;
+        try {
+            System.out.print("Digite o nome do paciente: ");
+            String nomeTemp = input.nextLine();
+
+            if (rPaciente.isntCadastrado(nomeTemp)) {
+                throw new PacienteNaoCadastrado(nomeTemp);
+            }
+            nome = nomeTemp;
+
+        } catch (PacienteNaoCadastrado e) {
+            System.out.println(e.getMessage());
+            return;
+        }
+        Optional<Paciente> oPaciente = rPaciente.buscarNome(nome);
+        Paciente paciente = oPaciente.get();
+        System.out.println("Paciente encontrado: " + paciente.getNome());
+
+        System.out.println(paciente.getHistorico());
+
     }
 
 }
