@@ -32,7 +32,7 @@ public class Main{
             System.out.println("3 - Sistema de Consulta");
             System.out.println("4 - Buscar nos Registros");
             System.out.println("5 - Sair do sistema.");
-            System.out.print("Digite a opção desejada: ");
+
             tecla = input.nextLine();
             switch (tecla) {
                 case "1" -> tecla1.abrirMenu();

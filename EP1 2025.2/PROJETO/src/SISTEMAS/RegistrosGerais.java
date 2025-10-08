@@ -35,12 +35,13 @@ public class RegistrosGerais implements Menu {
     public void abrirMenu() {
         String tecla;
         do {
-            System.out.println("\n==== SISTEMA DE REGISTRO ====");
+            System.out.println("\n==== SISTEMA DE REGISTROS ====");
             System.out.println("1 - Registros de pacientes.");
             System.out.println("2 - Registros de médicos.");
             System.out.println("3 - Registros de planos de saúde.");
             System.out.println("4 - Buscar histórico de paciente.");
             System.out.println("5 - Voltar ao menu principal: ");
+            System.out.print("Digite a opção desejada: ");
             tecla = input.nextLine();
 
             try{

@@ -39,7 +39,8 @@ public class SistemaCadastro implements Menu {
             System.out.println("2 - Cadastro de médico.");
             System.out.println("3 - Cadastro de especialidade médica.");
             System.out.println("4 - Cadastro de plano de saúde.");
-            System.out.println("5 - Voltar ao menu principal: ");
+            System.out.println("5 - Voltar ao menu principal: ");;
+            System.out.print("Digite a opção desejada: ");
             tecla = input.nextLine();
             switch (tecla) {
                 case "1" -> cadastrarPaciente();
