@@ -24,6 +24,9 @@ public class PlanoDeSaude {
 
 /////////////////  GETTERS & SETTERS   //////////////////
 
+    public Especialidades getEspecialidade(){
+        return especialidade;
+    }
     public String getNome(){
         return nome;
     }

@@ -14,11 +14,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class SistemaConsultas implements Menu {
-    private Scanner input;
-    private REP_CONSULTA rConsulta;
-    private REP_ESPECIALIDADE rEspecialidade;
-    private REP_MEDICO rMedico;
-    private REP_PACIENTE rPaciente;
+    private final Scanner input;
+    private final REP_CONSULTA rConsulta;
+    private final REP_ESPECIALIDADE rEspecialidade;
+    private final REP_MEDICO rMedico;
+    private final REP_PACIENTE rPaciente;
 
     public SistemaConsultas(Scanner input, REP_CONSULTA rConsulta, REP_ESPECIALIDADE rEspecialidade, REP_MEDICO rMedico, REP_PACIENTE rPaciente){
         this.input = input;
@@ -52,7 +52,7 @@ public class SistemaConsultas implements Menu {
     }
 
     public void agendarConsulta(){
-        double custoFinal = 0;
+        double custoFinal;
         System.out.println("\n--- Agenda Consulta ---");
 
         //Paciente
@@ -112,8 +112,16 @@ public class SistemaConsultas implements Menu {
         System.out.println("\nMédico encontrado!\nDr(a): " + medico.getNome());
 
         //CustoFinal
-        if (paciente instanceof Paciente_Idoso  ){
 
+        custoFinal = medico.getCustoConsulta();
+        if (paciente instanceof Paciente_Idoso){
+            custoFinal *= 1.15;
+        } else if (paciente instanceof Paciente_Crianca){
+            custoFinal *= 0.9;
+        }
+
+        if (paciente.plano.getEspecialidade() == especialidade){
+            custoFinal *= 0.5;
         }
 
         //Horario.Data
@@ -151,7 +159,7 @@ public class SistemaConsultas implements Menu {
         }
 
 
-    };
+    }
 
     public void processarConsulta(){
         System.out.println("\n--- Gerar Relatório de Consulta ---");
@@ -186,6 +194,6 @@ public class SistemaConsultas implements Menu {
         System.out.println("\n+++ ALTA REALIZADA COM SUCESSO +++");
         System.out.println(relatorio);
 
-    };
+    }
 
 }

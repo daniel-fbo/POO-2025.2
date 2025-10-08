@@ -1,10 +1,10 @@
 package PROCESSOS.INTERNACAO;
 import ENTIDADES.PACIENTE.Paciente;
+import ENTIDADES.PACIENTE.Paciente_Crianca;
+import ENTIDADES.PACIENTE.Paciente_Idoso;
 import PROCESSOS.CONSULTAS.Status;
-
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class Internacao{
 
@@ -45,6 +45,27 @@ public class Internacao{
 
 /////////////////////  MÉTODOS   ///////////////////////
 
+    private double calcularCusto(Duration duracao) {
+    double custoDiario = leito.getCustoDiario();
+    long dias = duracao.toDays();
+    if (duracao.toHours() % 24 > 0) {
+        dias += 1;
+    }
+    double custoFinal = custoDiario * dias;
+
+    if (paciente instanceof Paciente_Idoso) {
+        custoFinal *= 1.15;
+    } else if (paciente instanceof Paciente_Crianca) {
+        custoFinal *= 0.9;
+    }
+
+
+    if (paciente.getPlano().equals(PlanoPremium) && dias > 10) {
+        custoFinal = 0;
+    }
+    return custoFinal;
+}
+
     public boolean isAtiva() {
         return horarioAlta == null;
     }
@@ -55,7 +76,7 @@ public class Internacao{
             this.leito.liberar();
 
             Duration duracao = Duration.between(this.horarioInternacao, this.horarioAlta);
-            double custo = calcularCustoTotal(duracao);
+            double custo = calcularCusto(duracao);
             this.relatorioInternacao = new RelatorioInternacao(this.idInternacao, this.paciente, this.leito, duracao, custo);
             return this.relatorioInternacao;
         }

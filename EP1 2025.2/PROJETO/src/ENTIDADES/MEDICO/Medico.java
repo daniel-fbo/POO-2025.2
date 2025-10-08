@@ -30,6 +30,8 @@ public class Medico {
         return agenda;
     }
 
+    public double getCustoConsulta(){return custoConsulta;}
+
     public String getCrm(){
         return crm;
     }

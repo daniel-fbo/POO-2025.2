@@ -24,7 +24,7 @@ public class Paciente {
     }
 
 /////////////////  GETTERS & SETTERS   //////////////////
-
+    public PlanoDeSaude getPlano() {return plano;}
     public String getNome(){
         return nome;
     }

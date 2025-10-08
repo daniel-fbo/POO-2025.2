@@ -38,6 +38,10 @@ public class Leito {
         return paciente;
     }
 
+    public double getCustoDiario() {
+        return custoDiario;
+    }
+
 /////////////////////  MÉTODOS   ///////////////////////
 
     public void ocupar(Paciente paciente) throws LeitoOcupado {
