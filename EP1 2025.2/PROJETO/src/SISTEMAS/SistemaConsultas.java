@@ -10,7 +10,6 @@ import REPOSITORIOS.RPACIENTE.*;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class SistemaConsultas implements Menu {
@@ -148,6 +147,7 @@ public class SistemaConsultas implements Menu {
         System.out.println("\n--- Gerar Relatório de Consulta ---");
         System.out.print("Digite o código de identificação da consulta: ");
         int idCOnsulta = input.nextInt();
+        input.nextLine();
         System.out.print("Digite a descrição médica da consulta: ");
         String descricao = input.nextLine();
         System.out.print("Digite os medicamentos prescritos: ");
@@ -175,7 +175,7 @@ public class SistemaConsultas implements Menu {
         }
 
         rConsulta.salvar(consulta);
-        System.out.println("\n+++ ALTA REALIZADA COM SUCESSO +++");
+        System.out.println("\n+++ RELATÓRIO CONSULTA GERADO COM SUCESSO +++");
         System.out.println(relatorio);
 
     }

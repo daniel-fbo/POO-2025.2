@@ -11,7 +11,7 @@ public class Consulta {
     public final int idConsulta;
     public final Paciente paciente;
     public final Medico medico;
-    public final LocalDateTime horarioConsulta;
+    public LocalDateTime horarioConsulta;
     public RelatorioConsulta relatorioConsulta;
     public Status status;
     public Especialidades especialidade;
@@ -46,6 +46,15 @@ public class Consulta {
         this.custoFinal = custoFinal;
         this.horarioConsulta = horario;
     }
+
+    public Consulta(int idConsulta, Paciente paciente, Medico medico) {
+        this.idConsulta = idConsulta;
+        this.paciente = paciente;
+        this.medico = medico;
+        this.horarioConsulta = LocalDateTime.now();
+        this.status = Status.EM_PROCESSO;
+    }
+
 
 
     /////////////////  GETTERS & SETTERS   //////////////////
@@ -95,6 +104,10 @@ public class Consulta {
 
 
     public Status getStatus() { return status; }
+
+    public void setHorarioConsulta(LocalDateTime horario) {
+        this.horarioConsulta = horario;
+    }
 }
 
 

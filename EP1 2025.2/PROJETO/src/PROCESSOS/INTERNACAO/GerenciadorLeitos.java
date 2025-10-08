@@ -49,15 +49,6 @@ public class GerenciadorLeitos {
         }
     }
 
-    public void listarLeitosPorTipo(TipoLeito tipo) {
-        List<Leito> listaLeitosTipo = getListaPeloTipo(tipo);
-        if (listaLeitosTipo.isEmpty()) {
-            System.out.println("Não há " + tipo);
-        } else {
-            System.out.println("Quantidade de " + tipo + ":");
-            listaLeitosTipo.forEach(System.out::println);
-        }
-    }
 
     public long contarOcupados(TipoLeito tipo) {
         return getListaPeloTipo(tipo).stream()

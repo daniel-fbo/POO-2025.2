@@ -61,9 +61,9 @@ public class SistemaInternacao implements Menu {
 
         EstadoPaciente estado = paciente.estado;
         TipoLeito tipoLeito = switch (estado) {
-            case Azul, Verde -> TipoLeito.QUARTO;
-            case Amarelo -> TipoLeito.SALA_AMARELA;
-            case Vermelho -> TipoLeito.SALA_VERMELHA;
+            case AZUL, VERDE -> TipoLeito.QUARTO;
+            case AMARELO -> TipoLeito.SALA_AMARELA;
+            case VERMELHO -> TipoLeito.SALA_VERMELHA;
         };
 
         System.out.println("Buscando " + tipoLeito + "...");
@@ -80,6 +80,7 @@ public class SistemaInternacao implements Menu {
         try {
             Internacao novaInternacao = new Internacao(paciente, leito);
             rInternacao.salvar(novaInternacao);
+            System.out.println("\n Paciente "+ paciente.getNome() + " internado com sucesso!\n");
 
         } catch (LeitoOcupado e) {
             System.out.println(e.getMessage());

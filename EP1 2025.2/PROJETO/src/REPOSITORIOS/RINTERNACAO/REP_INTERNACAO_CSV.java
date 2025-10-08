@@ -42,6 +42,7 @@ public class REP_INTERNACAO_CSV implements REP_INTERNACAO {
     }
 
 
+
     private void carregarDoArquivo() {
         listaInternacoes.clear();
         File file = new File(ARQUIVO);
