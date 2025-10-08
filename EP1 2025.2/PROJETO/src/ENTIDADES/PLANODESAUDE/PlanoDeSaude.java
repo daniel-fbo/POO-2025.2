@@ -6,15 +6,15 @@ public class PlanoDeSaude {
 /////////////////////   ATRIBUTOS    /////////////////////
 
     public static int idPUniversal = 1 ;
-    public final int idPlano;
+    public int idPlano;
     public String nome;
-    public float descontoConsulta;
-    public float descontoInternacao;
+    public double descontoConsulta;
+    public double descontoInternacao;
     private Especialidades especialidade;
 
 //////////////////////  CONSTRUTOR   /////////////////////
 
-    public PlanoDeSaude(String nome, float descontoConsulta, float descontoInternacao, Especialidades especialidade){
+    public PlanoDeSaude(String nome, double descontoConsulta, double descontoInternacao, Especialidades especialidade){
         this.idPlano = idPUniversal;
         this.nome = nome;
         this.descontoConsulta = descontoConsulta;
@@ -23,11 +23,16 @@ public class PlanoDeSaude {
     }
 
     //CSV
-    public PlanoDeSaude(int idPlano, String nome) {
-        this.idPlano = idPlano;
+    public PlanoDeSaude(int id, String nome, double descontoConsulta, double descontoInternacao, Especialidades especialidade){
+        this.idPlano = id;
+        this.nome = nome;
+        this.descontoConsulta = descontoConsulta;
+        this.descontoInternacao = descontoInternacao;
+        this.especialidade = especialidade;
+    }
+    public PlanoDeSaude(String nome) {
         this.nome = nome;
     }
-
 
     /////////////////  GETTERS & SETTERS   //////////////////
 
@@ -38,5 +43,10 @@ public class PlanoDeSaude {
         return nome;
     }
     public int getIdPlano() {return idPlano;
+    }
+    public double getDescontoConsulta() {return descontoConsulta;
+    }
+
+    public double getDescontoInternacao() {return descontoInternacao;
     }
 }

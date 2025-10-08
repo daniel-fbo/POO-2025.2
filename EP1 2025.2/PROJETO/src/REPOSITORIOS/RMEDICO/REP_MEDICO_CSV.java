@@ -17,7 +17,6 @@ public class REP_MEDICO_CSV implements REP_MEDICO {
 
     @Override
     public void salvarMedico(Medico medico) {
-        // Remove médico com mesmo CRM, se existir
         listaMedicos.removeIf(m -> m.getCrm().equals(medico.getCrm()));
         listaMedicos.add(medico);
         salvarNoArquivo();

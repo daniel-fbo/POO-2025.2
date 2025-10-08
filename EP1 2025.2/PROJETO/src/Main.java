@@ -30,7 +30,7 @@ public class Main{
             System.out.println("1 - Sistema de Cadastro");
             System.out.println("2 - Sistema de Internação");
             System.out.println("3 - Sistema de Consulta");
-            System.out.println("4 - Buscar nos registros");
+            System.out.println("4 - Buscar nos Registros");
             System.out.println("5 - Sair do sistema.");
             System.out.print("Digite a opção desejada: ");
             tecla = input.nextLine();

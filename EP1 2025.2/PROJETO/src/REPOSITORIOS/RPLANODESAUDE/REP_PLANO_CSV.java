@@ -1,5 +1,6 @@
 package REPOSITORIOS.RPLANODESAUDE;
 
+import ENTIDADES.MEDICO.Especialidades;
 import ENTIDADES.PLANODESAUDE.PlanoDeSaude;
 import java.io.*;
 import java.util.*;
@@ -39,9 +40,12 @@ public class REP_PLANO_CSV implements REP_PLANO {
         }
 
         for (PlanoDeSaude p : listaPlanos) {
-            System.out.println("ID do Plano: " + p.getIdPlano());
-            System.out.println("Nome do Plano: " + p.getNome());
-            System.out.println("--------------------------------------------------\n");
+            System.out.println("ID: " + p.getIdPlano());
+            System.out.println("Nome: " + p.getNome());
+            System.out.println("Desconto em consultas: " + (1 - p.getDescontoConsulta()) * 100 + "%");
+            System.out.println("Desconto em internações: " + (1 - p.getDescontoInternacao()) * 100 + "%");
+            System.out.println("Especialidade com desconto: " + p.getEspecialidade());
+            System.out.println("--------------------------------------------------");
         }
     }
 
@@ -55,25 +59,41 @@ public class REP_PLANO_CSV implements REP_PLANO {
             while ((linha = br.readLine()) != null) {
                 if (linha.trim().isEmpty()) continue;
                 String[] partes = linha.split(";", -1);
-                if (partes.length >= 2) {
+                if (partes.length >= 5) {
                     int id = Integer.parseInt(partes[0]);
                     String nome = partes[1];
-                    listaPlanos.add(new PlanoDeSaude(id, nome));
+                    double descontoConsulta = Double.parseDouble(partes[2]);
+                    double descontoInternacao = Double.parseDouble(partes[3]);
+                    Especialidades especialidade = new Especialidades(partes[4]);
+
+
+                    PlanoDeSaude plano = new PlanoDeSaude(id, nome, descontoConsulta, descontoInternacao, especialidade);
+                    listaPlanos.add(plano);
                 }
             }
         } catch (IOException e) {
             System.err.println("Erro ao carregar planos: " + e.getMessage());
+        } catch (Exception e) {
+            System.err.println("Erro ao interpretar arquivo de planos: " + e.getMessage());
         }
     }
+
 
     private void salvarNoArquivo() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARQUIVO))) {
             for (PlanoDeSaude p : listaPlanos) {
-                bw.write(p.getIdPlano() + ";" + p.getNome());
+                bw.write(
+                        p.getIdPlano() + ";" +
+                                p.getNome() + ";" +
+                                p.getDescontoConsulta() + ";" +
+                                p.getDescontoInternacao() + ";" +
+                                p.getEspecialidade().getNome()
+                );
                 bw.newLine();
             }
         } catch (IOException e) {
             System.err.println("Erro ao salvar planos: " + e.getMessage());
         }
     }
+
 }

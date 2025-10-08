@@ -45,8 +45,11 @@ public class Paciente {
         if (historico == null) historico = new Historico();
         return historico;
     }
-
     public String getCpf(){
         return cpf;
     }
+    public void setPlano(PlanoDeSaude plano){
+        this.plano = plano;
+    }
+
 }

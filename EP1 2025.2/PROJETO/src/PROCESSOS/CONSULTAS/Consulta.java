@@ -38,8 +38,17 @@ public class Consulta {
         this.horarioConsulta = horario;
         this.custoFinal = custo;
     }
+    public Consulta(Paciente paciente, Medico medico, Especialidades especialidade, double custoFinal, LocalDateTime horario) {
+        this.idConsulta = idCUniversal++;
+        this.paciente = paciente;
+        this.medico = medico;
+        this.especialidade = especialidade;
+        this.custoFinal = custoFinal;
+        this.horarioConsulta = horario;
+    }
 
- /////////////////  GETTERS & SETTERS   //////////////////
+
+    /////////////////  GETTERS & SETTERS   //////////////////
 
     public Paciente getPaciente() {
         return paciente;

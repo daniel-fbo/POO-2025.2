@@ -39,10 +39,8 @@ public class RegistrosGerais implements Menu {
             System.out.println("1 - Registros de pacientes.");
             System.out.println("2 - Registros de médicos.");
             System.out.println("3 - Registros de planos de saúde.");
-            System.out.println("4 - Registros de consultas.");
-            System.out.println("5 - Registros de internações.");
-            System.out.println("6 - Buscar histórico de paciente.");
-            System.out.println("7 - Voltar ao menu principal: ");
+            System.out.println("4 - Buscar histórico de paciente.");
+            System.out.println("5 - Voltar ao menu principal: ");
             tecla = input.nextLine();
 
             try{
@@ -58,7 +56,7 @@ public class RegistrosGerais implements Menu {
                 System.out.println(e.getMessage());
             }
 
-        } while (!tecla.equals("6"));
+        } while (!tecla.equals("5"));
     }
 
     public void buscarHistorico(){

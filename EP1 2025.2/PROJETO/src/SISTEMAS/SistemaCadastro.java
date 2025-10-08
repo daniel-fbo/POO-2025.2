@@ -254,7 +254,7 @@ public class SistemaCadastro implements Menu {
             }
         }
 
-        float descontoConsulta;
+        double descontoConsulta;
         switch (opcao){
             case 1 -> descontoConsulta = 0.90f;
             case 2 -> descontoConsulta = 0.85f;
@@ -283,7 +283,7 @@ public class SistemaCadastro implements Menu {
             }
         }
 
-        float descontoInternacao;
+        double descontoInternacao;
         switch (opcao){
             case 1 -> descontoInternacao = 0.75f;
             case 2 -> descontoInternacao = 0.65f;

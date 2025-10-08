@@ -2,6 +2,7 @@ package REPOSITORIOS.RPACIENTE;
 
 import ENTIDADES.PACIENTE.Paciente;
 import ENTIDADES.PACIENTE.Historico;
+import ENTIDADES.PLANODESAUDE.PlanoDeSaude;
 import PROCESSOS.CONSULTAS.RelatorioConsulta;
 import PROCESSOS.CONSULTAS.Diagnostico;
 import PROCESSOS.INTERNACAO.RelatorioInternacao;
@@ -28,14 +29,11 @@ public class REP_PACIENTE_CSV implements REP_PACIENTE {
         carregarHistoricos();
     }
 
-    // ------------------------
-    // CRUD Paciente
-    // ------------------------
     @Override
     public void salvarPaciente(Paciente paciente) {
         listaPacientes.removeIf(p -> p.getCpf().equals(paciente.getCpf()));
         listaPacientes.add(paciente);
-        salvarPacientes();
+        salvarPacientesCSV();
         salvarHistoricos(paciente);
     }
 
@@ -104,27 +102,38 @@ public class REP_PACIENTE_CSV implements REP_PACIENTE {
             while ((linha = br.readLine()) != null) {
                 String[] partes = linha.split(";", -1);
                 if (partes.length < 2) continue;
+
                 String nome = partes[0].trim();
                 String cpf = partes[1].trim();
-                listaPacientes.add(new Paciente(nome, cpf)); // Historico inicializado
+                String nomePlano = partes.length >= 3 ? partes[2].trim() : "Sem Plano";
+
+                Paciente paciente = new Paciente(nome, cpf);
+                if (!nomePlano.equalsIgnoreCase("Sem Plano") && !nomePlano.isBlank()) {
+                    paciente.setPlano(new PlanoDeSaude(nomePlano));
+                }
+
+                listaPacientes.add(paciente);
             }
+
         } catch (Exception e) {
             System.err.println("Erro ao carregar pacientes: " + e.getMessage());
         }
     }
 
-    private void salvarPacientes() {
+    private void salvarPacientesCSV() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARQUIVO_PACIENTES))) {
-            bw.write("Nome;CPF");
+            bw.write("Nome;CPF;Plano");
             bw.newLine();
             for (Paciente p : listaPacientes) {
-                bw.write(p.getNome() + ";" + p.getCpf());
+                String nomePlano = (p.getPlano() != null) ? p.getPlano().getNome() : "Sem Plano";
+                bw.write(p.getNome() + ";" + p.getCpf() + ";" + nomePlano);
                 bw.newLine();
             }
         } catch (IOException e) {
             System.err.println("Erro ao salvar pacientes: " + e.getMessage());
         }
     }
+
 
     private void carregarHistoricoConsultas() {
         File file = new File(ARQUIVO_HIST_CONSULTAS);

@@ -52,116 +52,96 @@ public class SistemaConsultas implements Menu {
         } while (!tecla.equals("3"));
     }
 
-    public void agendarConsulta(){
-        double custoFinal;
-        System.out.println("\n--- Agenda Consulta ---");
+    public void agendarConsulta() {
+        System.out.println("\n--- Agendamento de Consulta ---");
 
-        //Paciente
 
-        String nome;
-        try {
-            System.out.print("Digite o nome do paciente: ");
-            String nomeTemp = input.nextLine();
+        System.out.print("Digite o nome do paciente: ");
+        String nomePaciente = input.nextLine();
 
-            if (rPaciente.isntCadastrado(nomeTemp)) {
-                throw new PacienteNaoCadastrado(nomeTemp);
-            }
-            nome = nomeTemp;
-
-        } catch (PacienteNaoCadastrado e) {
-            System.out.println(e.getMessage());
+        if (rPaciente.isntCadastrado(nomePaciente)) {
+            System.out.println("Paciente não cadastrado: " + nomePaciente);
             return;
         }
 
-        Optional<Paciente> oPaciente = rPaciente.buscarNome(nome);
+        Optional<Paciente> oPaciente = rPaciente.buscarNome(nomePaciente);
+        if (oPaciente.isEmpty()) {
+            System.out.println("Erro ao buscar paciente.");
+            return;
+        }
         Paciente paciente = oPaciente.get();
         System.out.println("Paciente encontrado: " + paciente.getNome());
 
-        //Especialidade
 
         List<Especialidades> listaEspecialidades = rEspecialidade.listarEspecialidades();
         Especialidades especialidade = null;
-        System.out.println("Área da consulta:");
-        for(int i = 0; i < listaEspecialidades.size(); i++){
-            System.out.println((i+1) + " - " + listaEspecialidades.get(i) + ".");
+        System.out.println("\nÁrea da consulta:");
+        for (int i = 0; i < listaEspecialidades.size(); i++) {
+            System.out.println((i + 1) + " - " + listaEspecialidades.get(i).getNome());
         }
 
-        while (especialidade == null){
-            try{
-                System.out.println("Digite a opção correspondente:");
+        while (especialidade == null) {
+            try {
+                System.out.print("Digite a opção correspondente: ");
                 short opcao = input.nextShort();
-                if (opcao < 1 || opcao > listaEspecialidades.size()){
+                input.nextLine();
+                if (opcao < 1 || opcao > listaEspecialidades.size()) {
                     throw new IllegalArgumentException("Opção inválida.");
                 }
-                especialidade = listaEspecialidades.get(opcao-1);
-            } catch (Exception e){
-                System.out.println("Digite um número entre 1 e "+ listaEspecialidades.size() + ".");
-                input.nextLine(); //LimpaBuffer
+                especialidade = listaEspecialidades.get(opcao - 1);
+            } catch (Exception e) {
+                System.out.println("Digite um número entre 1 e " + listaEspecialidades.size() + ".");
+                input.nextLine(); // limpar buffer
             }
         }
 
-        //Médico
 
-        Optional<Medico> possivelMedico = rMedico.buscarEspecialidade(especialidade);
+        List<Medico> medicosDisponiveis = new ArrayList<>();
+        for (Medico m : rMedico.listarMedicos()) {
+            if (m.getEspecialidade().getNome().equalsIgnoreCase(especialidade.getNome())) {
+                medicosDisponiveis.add(m);
+            }
+        }
 
-        if (possivelMedico.isEmpty()){
-            System.out.print("Não há medicos disponíveis para consultas nessa área.");
+
+
+
+        if (medicosDisponiveis.isEmpty()) {
+            System.out.println("Nenhum médico disponível para essa especialidade.");
             return;
         }
 
-        Medico medico = possivelMedico.get();
-        System.out.println("\nMédico encontrado!\nDr(a): " + medico.getNome());
-
-        //CustoFinal
-
-        custoFinal = medico.getCustoConsulta();
-        if (paciente instanceof Paciente_Idoso){
-            custoFinal *= 1.15;
-        } else if (paciente instanceof Paciente_Crianca){
-            custoFinal *= 0.9;
+        System.out.println("\nMédicos disponíveis:");
+        for (int i = 0; i < medicosDisponiveis.size(); i++) {
+            System.out.println((i + 1) + " - " + medicosDisponiveis.get(i).getNome());
         }
 
-        if (paciente.plano.getEspecialidade() == especialidade){
-            custoFinal *= 0.5;
-        }
-
-        custoFinal *= paciente.plano.descontoConsulta;
-
-        //Horario.Data
-
-        LocalDateTime horarioConsulta = null;
-        while (horarioConsulta == null) {
+        int escolha = 0;
+        while (escolha < 1 || escolha > medicosDisponiveis.size()) {
+            System.out.print("Escolha o médico pelo número: ");
             try {
-                System.out.print("Digite a data e horário da consulta (formato: dd/MM/yyyy HH:mm): ");
-                String data = input.nextLine();
-                DateTimeFormatter formatador = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-                horarioConsulta = LocalDateTime.parse(data, formatador);
-            } catch (Exception e) {
-                System.out.println("Formato inválido.");
+                escolha = input.nextInt();
+                input.nextLine();
+            } catch (InputMismatchException e) {
+                System.out.println("Digite apenas números.");
+                input.nextLine();
             }
-
         }
 
-        try {
-            if (!medico.getAgenda().isDisponivel(horarioConsulta)) {
-                throw new HorarioIndisponivel(medico, horarioConsulta);
-            }
-
-            Consulta novaConsulta = new Consulta(paciente, medico, horarioConsulta, custoFinal);
-
-            medico.getAgenda().adicionarConsulta(novaConsulta);
-            rConsulta.salvar(novaConsulta);
-            System.out.println("\nConsulta agendada com sucesso!");
-            System.out.println("Paciente: " + paciente.getNome());
-            System.out.println("Médico: " + medico.getNome());
-            System.out.println("Especialidade: " + especialidade);
-            System.out.println("Data/Hora: " + horarioConsulta.format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm")));
-
-        } catch (HorarioIndisponivel e) {
-            System.out.println(e.getMessage());
-        }
+        Medico medico = medicosDisponiveis.get(escolha - 1);
+        System.out.println("Médico selecionado: " + medico.getNome());
 
 
+        double custoFinal = medico.getCustoConsulta();
+        Consulta consulta = new Consulta(paciente, medico, especialidade, custoFinal, LocalDateTime.now());
+
+        rConsulta.salvar(consulta);
+
+        System.out.println("\n+++ Consulta agendada com sucesso! +++");
+        System.out.println("Paciente: " + paciente.getNome());
+        System.out.println("Médico: " + medico.getNome());
+        System.out.println("Especialidade: " + especialidade.getNome());
+        System.out.println("Custo: R$ " + String.format("%.2f", custoFinal));
     }
 
     public void processarConsulta(){
