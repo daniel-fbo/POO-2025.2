@@ -98,6 +98,7 @@ public class SistemaInternacao implements Menu {
         }
         Internacao internacao = oInternacao.get();
         RelatorioInternacao relatorio = internacao.registrarAlta();
+        internacao.paciente.getHistorico().adicionarInternacaoHistorico(relatorio);
         rInternacao.salvar(internacao);
         System.out.println("\n+++ ALTA REALIZADA COM SUCESSO +++");
         System.out.println(relatorio);

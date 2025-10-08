@@ -31,14 +31,12 @@ public class Consulta {
         this.diagnostico = null;
     }
     // CSV
-    public Consulta(int id, Paciente paciente, Medico medico, LocalDateTime horario, double custo, Status status) {
-        this.idConsulta = id; // Usa o ID lido do arquivo
-        this.paciente = paciente;
-        this.medico = medico;
-        this.especialidade = medico.getEspecialidade();
+    public Consulta(int id, String nomePaciente, String nomeMedico, LocalDateTime horario, double custo) {
+        this.idConsulta = id;
+        this.paciente = new Paciente(nomePaciente);
+        this.medico = new Medico(nomeMedico);
         this.horarioConsulta = horario;
         this.custoFinal = custo;
-        this.status = status; // Usa o Status lido do arquivo
     }
 
  /////////////////  GETTERS & SETTERS   //////////////////

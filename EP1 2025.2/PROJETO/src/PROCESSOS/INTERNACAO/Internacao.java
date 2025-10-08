@@ -25,11 +25,7 @@ public class Internacao{
         this.idInternacao = idIUniversal++;
         this.paciente = paciente;
         this.leito = leito;
-        try {
-            this.leito.ocupar(paciente);
-        } catch (LeitoOcupado e) {
-            throw e;
-        }
+        this.leito.ocupar(paciente);
         this.horarioInternacao = LocalDateTime.now();
         this.horarioAlta = null;
         this.relatorioInternacao = null;
@@ -37,10 +33,30 @@ public class Internacao{
         this.iCustoFinal = 0;
     }
 
-/////////////////  GETTERS & SETTERS   //////////////////
+    public Internacao(int id, String nomePaciente, String cpf,
+                      LocalDateTime data, Status status) {
+        this.idInternacao = id;
+        this.paciente = paciente;
+        this.horarioInternacao = data;
+        this.status = status;
+    }
+
+
+    /////////////////  GETTERS & SETTERS   //////////////////
 
     public Paciente getPaciente() {
         return paciente;
+    }
+
+    public int getIdInternacao() {return idInternacao;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public LocalDateTime getDataInternacao() {
+        return horarioInternacao;
     }
 
 /////////////////////  MÉTODOS   ///////////////////////
@@ -64,7 +80,7 @@ public class Internacao{
     }
 
 
-    /*if (paciente.getPlano().equals(PlanoPremium) && dias > 10) {
+    /*if (paciente.getPlano().equals(Plano Starplatinum) && dias > 10) {
         custoFinal = 0;
     }*/
 
@@ -87,6 +103,7 @@ public class Internacao{
         }
         return this.relatorioInternacao;
     }
+
 
 }
 

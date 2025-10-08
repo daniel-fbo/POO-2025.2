@@ -10,12 +10,12 @@ import java.util.Scanner;
 
 public class Main{
     public static void main(String[] args) {
-        REP_PACIENTE rPaciente = new REP_PACIENTE_RAM();
-        REP_MEDICO rMedico = new REP_MEDICO_RAM();
-        REP_PLANO rPlano = new REP_PLANO_RAM();
-        REP_CONSULTA rConsulta = new REP_CONSULTA_RAM();
-        REP_INTERNACAO rInternacao = new REP_INTERNACAO_RAM();
-        REP_ESPECIALIDADE rEspecialidade = new REP_ESPECIALIDADE_RAM();
+        REP_PACIENTE rPaciente = new REP_PACIENTE_CSV();
+        REP_MEDICO rMedico = new REP_MEDICO_CSV();
+        REP_PLANO rPlano = new REP_PLANO_CSV();
+        REP_CONSULTA rConsulta = new REP_CONSULTA_CSV();
+        REP_INTERNACAO rInternacao = new REP_INTERNACAO_CSV();
+        REP_ESPECIALIDADE rEspecialidade = new REP_ESPECIALIDADE_CSV();
         GerenciadorLeitos gLeitos = new GerenciadorLeitos((short) 10, (short) 5, (short) 3, 100, 500, 1000 );
 
         Scanner input = new Scanner(System.in);

@@ -7,5 +7,4 @@ public interface REP_CONSULTA {
     Optional<Consulta> buscarIdConsulta(int idConsulta);
     List<Consulta> listarConsultas();
 
-
 }

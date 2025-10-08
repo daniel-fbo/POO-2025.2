@@ -22,7 +22,14 @@ public class PlanoDeSaude {
         this.especialidade = especialidade;
     }
 
-/////////////////  GETTERS & SETTERS   //////////////////
+    //CSV
+    public PlanoDeSaude(int idPlano, String nome) {
+        this.idPlano = idPlano;
+        this.nome = nome;
+    }
+
+
+    /////////////////  GETTERS & SETTERS   //////////////////
 
     public Especialidades getEspecialidade(){
         return especialidade;
@@ -30,5 +37,6 @@ public class PlanoDeSaude {
     public String getNome(){
         return nome;
     }
-
+    public int getIdPlano() {return idPlano;
+    }
 }

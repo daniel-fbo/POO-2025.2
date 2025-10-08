@@ -5,7 +5,7 @@ public class Medico {
 /////////////////////   ATRIBUTOS    /////////////////////
 
     public final String nome;
-    public final String crm;
+    public String crm;
     public double custoConsulta;
     public Agenda agenda;
     public Especialidades especialidade;
@@ -18,6 +18,9 @@ public class Medico {
         this.custoConsulta = custoConsulta;
         this.especialidade = especialidade;
         this.agenda = null;
+    }
+    public Medico(String nome){
+        this.nome = nome;
     }
 
 /////////////////  GETTERS & SETTERS   //////////////////

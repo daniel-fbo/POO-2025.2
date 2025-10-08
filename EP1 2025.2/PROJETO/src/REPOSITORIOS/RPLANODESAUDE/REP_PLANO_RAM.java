@@ -8,6 +8,7 @@ public class REP_PLANO_RAM implements REP_PLANO {
     @Override
     public void salvarPlano(PlanoDeSaude plano){
         listaPlanos.removeIf(p -> p.idPlano == plano.idPlano);
+        listaPlanos.add(plano);
     }
 
     @Override

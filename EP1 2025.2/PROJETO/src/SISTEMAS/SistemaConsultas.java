@@ -186,6 +186,7 @@ public class SistemaConsultas implements Menu {
         Consulta consulta = oConsulta.get();
         consulta.setDiagnostico(diagnostico);
         RelatorioConsulta relatorio = consulta.registrarConsulta();
+        consulta.getPaciente().getHistorico().adicionarConsultaHistorico(relatorio);
 
         if(consulta.paciente instanceof Paciente_Idoso){
             Paciente_Idoso idoso = (Paciente_Idoso) consulta.getPaciente();

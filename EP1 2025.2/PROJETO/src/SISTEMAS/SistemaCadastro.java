@@ -44,8 +44,8 @@ public class SistemaCadastro implements Menu {
             switch (tecla) {
                 case "1" -> cadastrarPaciente();
                 case "2" -> cadastrarMedico();
-                case "3" -> cadastrarPlano();
-                case "4" -> cadastrarEspecialidade();
+                case "3" -> cadastrarEspecialidade();
+                case "4" -> cadastrarPlano();
                 case "5" -> System.out.println("SISTEMA FECHADO");
                 default -> System.out.println("Opção inválida.");
             }
