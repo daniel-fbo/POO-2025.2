@@ -20,34 +20,46 @@ public class REP_CONSULTA_CSV implements REP_CONSULTA {
         carregarDoArquivo();
     }
 
-    public void salvar(Consulta consulta) {
+
+    @Override
+    public void salvarConsulta(Consulta consulta) {
+        listaConsultas.add(consulta);
+        salvarNoArquivo();
+    }
+
+    @Override
+    public void atualizarConsulta(Consulta consulta) {
         listaConsultas.removeIf(c -> c.getIdConsulta() == consulta.getIdConsulta());
         listaConsultas.add(consulta);
         salvarNoArquivo();
     }
 
+    @Override
     public Optional<Consulta> buscarIdConsulta(int id) {
         return listaConsultas.stream().filter(c -> c.getIdConsulta() == id).findFirst();
     }
 
+    @Override
     public List<Consulta> listarConsultas() {
         return new ArrayList<>(listaConsultas);
     }
 
+
     private void salvarNoArquivo() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(caminhoArquivo))) {
+            // Cabeçalho
+            bw.write("idConsulta;cpfPaciente;crmMedico;especialidade;horario;status;custo;diagnostico");
+            bw.newLine();
+
             for (Consulta c : listaConsultas) {
-                bw.write(c.getIdConsulta() + ";" +
-                        c.getPaciente().getCpf() + ";" +
-                        c.getMedico().getCrm() + ";" +
-                        c.getHorarioConsulta() + ";" +
-                        c.getCustoFinal());
+                bw.write(c.getRelatorio().toCSV());
                 bw.newLine();
             }
         } catch (IOException e) {
             System.out.println("Erro ao salvar consultas: " + e.getMessage());
         }
     }
+
 
     private void carregarDoArquivo() {
         File arquivo = new File(caminhoArquivo);

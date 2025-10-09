@@ -14,13 +14,22 @@ public class REP_INTERNACAO_CSV implements REP_INTERNACAO {
         carregarDoArquivo();
     }
 
+
     @Override
-    public void salvar(Internacao internacao) {
+    public void salvarInternacao(Internacao internacao) {
+        listaInternacoes.add(internacao);
+        salvarNoArquivo();
+    }
+
+    // Atualizar internação existente com alta
+    @Override
+    public void atualizarAlta(Internacao internacao) {
         listaInternacoes.removeIf(i -> i.getIdInternacao() == internacao.getIdInternacao());
         listaInternacoes.add(internacao);
         salvarNoArquivo();
     }
 
+    // ======= MÉTODOS DE BUSCA =======
     @Override
     public Optional<Internacao> buscarCpf(String cpf) {
         return listaInternacoes.stream()
@@ -41,8 +50,7 @@ public class REP_INTERNACAO_CSV implements REP_INTERNACAO {
         return Collections.unmodifiableList(listaInternacoes);
     }
 
-
-
+    // ======= MÉTODOS PRIVADOS =======
     private void carregarDoArquivo() {
         listaInternacoes.clear();
         File file = new File(ARQUIVO);
@@ -72,7 +80,7 @@ public class REP_INTERNACAO_CSV implements REP_INTERNACAO {
 
     private void salvarNoArquivo() {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARQUIVO))) {
-            bw.write("IdInternacao;Paciente;CPF;Medico;DataInternacao;Status");
+            bw.write("IdInternacao;Paciente;CPF;DataInternacao;Status");
             bw.newLine();
 
             for (Internacao i : listaInternacoes) {

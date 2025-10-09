@@ -108,6 +108,9 @@ public class Consulta {
     public void setHorarioConsulta(LocalDateTime horario) {
         this.horarioConsulta = horario;
     }
+
+    public RelatorioConsulta getRelatorio() {return relatorioConsulta;
+    }
 }
 
 

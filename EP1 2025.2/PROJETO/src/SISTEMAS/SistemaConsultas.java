@@ -134,7 +134,7 @@ public class SistemaConsultas implements Menu {
         double custoFinal = medico.getCustoConsulta();
         Consulta consulta = new Consulta(paciente, medico, especialidade, custoFinal, LocalDateTime.now());
 
-        rConsulta.salvar(consulta);
+        rConsulta.salvarConsulta(consulta);
 
         System.out.println("\n+++ Consulta agendada com sucesso! +++");
         System.out.println("Paciente: " + paciente.getNome());
@@ -174,7 +174,7 @@ public class SistemaConsultas implements Menu {
             idoso.setDataUltimaConsulta(hoje);
         }
 
-        rConsulta.salvar(consulta);
+        rConsulta.atualizarConsulta(consulta);
         System.out.println("\n+++ RELATÓRIO CONSULTA GERADO COM SUCESSO +++");
         System.out.println(relatorio);
 

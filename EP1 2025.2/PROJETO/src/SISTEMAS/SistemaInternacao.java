@@ -79,7 +79,7 @@ public class SistemaInternacao implements Menu {
 
         try {
             Internacao novaInternacao = new Internacao(paciente, leito);
-            rInternacao.salvar(novaInternacao);
+            rInternacao.salvarInternacao(novaInternacao);
             System.out.println("\n Paciente "+ paciente.getNome() + " internado com sucesso!\n");
 
         } catch (LeitoOcupado e) {
@@ -100,7 +100,7 @@ public class SistemaInternacao implements Menu {
         Internacao internacao = oInternacao.get();
         RelatorioInternacao relatorio = internacao.registrarAlta();
         internacao.paciente.getHistorico().adicionarInternacaoHistorico(relatorio);
-        rInternacao.salvar(internacao);
+        rInternacao.atualizarAlta(internacao);
         System.out.println("\n+++ ALTA REALIZADA COM SUCESSO +++");
         System.out.println(relatorio);
     };
