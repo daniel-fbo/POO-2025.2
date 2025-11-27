@@ -1,26 +1,44 @@
-
-
-class Animal:
-    def __init__(self, nome=""):
+class Pessoa:
+    def __init__(self, nome, idade, estado):
         self.nome = nome
-
-    def comer(self):
-        return f'O {self.nome} está comendo...'
-
-class Cachorro(Animal):
-    def __init__(self, nome, raca, idade=None):
-        super().__init__(nome)
-        self.raca = raca
         self.idade = idade
+        self.estado = estado
 
-    def get_idade(self):
-        return self.idade
-    def get_raca(self):
-        return self.raca
-    def latir(self):
-        return f'{self.nome} está latindo!'
+    @property
+    def estado_getter(self):
+        if self.estado == "tuff":
+            return f'Estado: {self.estado}. Parabéns!'
+        else:
+            return f'Estado: {self.estado}.'
+print(f'Digite seu nome:')
+nome = input()
+print(f'Digite sua idade')
+idade = int(input())
+print(f'Qual sua aura:')
+aura = int(input())
 
-    meu_cachorro = Cachorro("Destruidor", "Pinshcer",6)
-    print(meu_cachorro.latir())
-    print(f'Raça: {meu_cachorro.get_raca()}')
-    printf(f'Idade: {meu_cachorro.get_idade()}')
+if aura >= 8000:
+    estado = "tuff"
+elif aura >= 5000:
+    estado = "based"
+elif aura >= 2000:
+    estado = "normie"
+else:
+    estado = "beta"
+
+pessoa = Pessoa(nome, idade, estado)
+
+print(f'Nome: {pessoa.nome}')
+print(f'idade: {pessoa.idade}')
+
+print(pessoa.estado_getter)
+
+for i in range(1000):
+
+
+
+
+
+
+
+S
