@@ -1,0 +1,13 @@
+Data: 26/11/2025
+
+Integrantes:
+Daniel Filipe Borges de Oliveira - 251019771
+Eduardo Jesus Dal Pizzol - 251008114
+João Pedro da Nóbrega Souza Cordeiro - 251023184
+
+Proposta:
+Sistema de Biblioteca aura + ego
+
+Model: usuario.py
+Controller:
+Service:
